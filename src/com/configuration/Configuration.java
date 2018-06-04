@@ -15,7 +15,7 @@ public class Configuration {
 	protected String[] configurationContent;
 	
 	public Configuration() throws IOException {
-		fileInputStream = new FileInputStream("configure2.txt");
+		fileInputStream = new FileInputStream("/home/kong/IdeaProjects/zuowenfeng/JinfangProject/Jinfang/configure2.txt");
 		BufferedReader br = new BufferedReader(new InputStreamReader(fileInputStream));
 		String line = "";
 		String content = "";

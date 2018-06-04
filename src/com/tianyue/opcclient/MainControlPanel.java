@@ -24,66 +24,66 @@ import com.zuowenfeng.AgentComposite.util.DataAnalyzeComponentImpl;
 import com.zuowenfeng.AgentComposite.util.DataBaseComponentImpl;
 
 /**
- * ½Ó¿ÚÔÙ°ü×°ºóµÄ¶¥²ã½Ó¿Ú
+ * æ¥å£å†åŒ…è£…åçš„é¡¶å±‚æ¥å£
  * @author tian
- * 
+ *
  */
 public class MainControlPanel {
 	public ArrayList<OpcInit> opcInitList;
 	public HashMap<Integer, OpcInit> opcInitMap;
 	public ArrayList<OpcClientAPI> opcClientAPIList;
 	public HashMap<Integer, OpcClientAPI> opcClientAPIMap;
-	public int basicAddress; //ÖØÒª£ºbasicAddressÊÇ±¾³ÌĞòÏÂÉè±¸µØÖ·£¨¶ÔÓ¦OPC·şÎñÆ÷£©µÄÆğÊ¼µØÖ·£¬¿¼ÂÇ¿ÉÄÜÓĞÁ¬½Ó¶à¸öOPC·şÎñÆ÷µÄÇé¿ö£¬
-							//³ÌĞò½«ÔÚbasicAddress»ù´¡ÉÏ¼ÓÉÏconnectionIdµÄÖµ×÷ÎªÃ¿¸ö·şÎñÆ÷µÄÉè±¸µØÖ·£¬´Ë´¦Éè±¸µØÖ·ÒªºÍÊı¾İ±íÖĞµÄDEVICE_ID¶ÔÓ¦
-							//ÓĞ¹ØconnectionIdµÄÏêÏ¸ËµÃ÷Çë²é¿´ÎÄµµ
-	public String tableName;// Test!H2Êı¾İ¿â±íÃû£¬²âÊÔÓÃ
-	public String downAddress;//ÏÂ·¢Êı¾İµÄÉè±¸µØÖ·£¨¶ÔÓ¦OPC·şÎñÆ÷£©
-	public String downPlcAddress;//ÏÂ·¢Êı¾İµÄPLCµØÖ·£¨¶ÔÓ¦OPC±äÁ¿£©
-	public int downDataType;//ÏÂ·¢Êı¾İµÄÊı¾İÀàĞÍ
-	public float downValue;//ÏÂ·¢Êı¾İµÄÖµ
-	public boolean needDownload;//±ê¼ÇÊÇ·ñÓĞĞÂµÄÏÂ·¢ÃüÁî£¬³ÌĞò»á¶¨ÆÚ¼ì²é¸Ã±ê¼ÇÒÔ¾ö¶¨ÊÇ·ñÏÂ·¢Êı¾İ£¬µ±ĞŞ¸ÄÒÔÉÏ¼¸¸öÏÂ·¢²ÎÊıºóÓ¦½«needDownload±ê¼ÇÎªtrue
+	public int basicAddress; //é‡è¦ï¼šbasicAddressæ˜¯æœ¬ç¨‹åºä¸‹è®¾å¤‡åœ°å€ï¼ˆå¯¹åº”OPCæœåŠ¡å™¨ï¼‰çš„èµ·å§‹åœ°å€ï¼Œè€ƒè™‘å¯èƒ½æœ‰è¿æ¥å¤šä¸ªOPCæœåŠ¡å™¨çš„æƒ…å†µï¼Œ
+	//ç¨‹åºå°†åœ¨basicAddressåŸºç¡€ä¸ŠåŠ ä¸ŠconnectionIdçš„å€¼ä½œä¸ºæ¯ä¸ªæœåŠ¡å™¨çš„è®¾å¤‡åœ°å€ï¼Œæ­¤å¤„è®¾å¤‡åœ°å€è¦å’Œæ•°æ®è¡¨ä¸­çš„DEVICE_IDå¯¹åº”
+	//æœ‰å…³connectionIdçš„è¯¦ç»†è¯´æ˜è¯·æŸ¥çœ‹æ–‡æ¡£
+	public String tableName;// Test!H2æ•°æ®åº“è¡¨åï¼Œæµ‹è¯•ç”¨
+	public String downAddress;//ä¸‹å‘æ•°æ®çš„è®¾å¤‡åœ°å€ï¼ˆå¯¹åº”OPCæœåŠ¡å™¨ï¼‰
+	public String downPlcAddress;//ä¸‹å‘æ•°æ®çš„PLCåœ°å€ï¼ˆå¯¹åº”OPCå˜é‡ï¼‰
+	public int downDataType;//ä¸‹å‘æ•°æ®çš„æ•°æ®ç±»å‹
+	public float downValue;//ä¸‹å‘æ•°æ®çš„å€¼
+	public boolean needDownload;//æ ‡è®°æ˜¯å¦æœ‰æ–°çš„ä¸‹å‘å‘½ä»¤ï¼Œç¨‹åºä¼šå®šæœŸæ£€æŸ¥è¯¥æ ‡è®°ä»¥å†³å®šæ˜¯å¦ä¸‹å‘æ•°æ®ï¼Œå½“ä¿®æ”¹ä»¥ä¸Šå‡ ä¸ªä¸‹å‘å‚æ•°ååº”å°†needDownloadæ ‡è®°ä¸ºtrue
 	private SimpleDateFormat format = new SimpleDateFormat(
 			"yyyy-MM-dd kk:mm:ss.S");
 	private SimpleDateFormat format2 = new SimpleDateFormat(
 			"yyyy-MM-dd kk:mm:ss");
 	private Date date;
-	
+
 	private DataAnalyzeComponent components = new DataAnalyzeComponentImpl();
-	
+
 
 	public JFrame jf;
 	public JFrame cf;
 	private JTextArea ja;
-	
+
 	private String configFileAddr;
 	private String basicAddr;
 	private int submitFrequency;
-	
+
 	// public int connectionId;// Device Id
 	/**
-	 * ¹¹Ôì¿ØÖÆÌ¨ ³õÊ¼»¯
-	 * ¿ØÖÆÌ¨¹¹Ôìº¯ÊıĞèÒªÉèÖÃµÄÄÚÈİ£º
-	 * 1.½¨Á¢´æ·ÅopcInit¶ÔÏóµÄopcInitList±í
-	 * 2.½¨Á¢´æ·ÅopcClientAPI¶ÔÏóµÄopcClientAPIList±í
-	 * 3.ÏÂ·¢ÇëÇó±ê¼ÇÎªfalse
-	 * @throws IOException 
+	 * æ„é€ æ§åˆ¶å° åˆå§‹åŒ–
+	 * æ§åˆ¶å°æ„é€ å‡½æ•°éœ€è¦è®¾ç½®çš„å†…å®¹ï¼š
+	 * 1.å»ºç«‹å­˜æ”¾opcInitå¯¹è±¡çš„opcInitListè¡¨
+	 * 2.å»ºç«‹å­˜æ”¾opcClientAPIå¯¹è±¡çš„opcClientAPIListè¡¨
+	 * 3.ä¸‹å‘è¯·æ±‚æ ‡è®°ä¸ºfalse
+	 * @throws IOException
 	 */
 	public MainControlPanel() throws IOException {
 		opcInitList = new ArrayList<OpcInit>();
 		opcClientAPIList = new ArrayList<OpcClientAPI>();
 		needDownload = false;
 		components.setDataBaseComponent(new DataBaseComponentImpl());
-		
-//		cf = new JFrame("OPC»ù±¾ÉèÖÃ");
+
+//		cf = new JFrame("OPCåŸºæœ¬è®¾ç½®");
 //		cf.setBounds(500, 200, 300, 300);
 //		cf.setLayout(new GridLayout(2,2));
-//		JLabel label_basic_addr = new JLabel("×ÓÕ¾OPCµØÖ·");
+//		JLabel label_basic_addr = new JLabel("å­ç«™OPCåœ°å€");
 //		cf.add(label_basic_addr);
 //		cf.setVisible(true);
 //		JTextField text_basic_addr = new JTextField();
 //		cf.add(text_basic_addr);
-//		JButton button_ok = new JButton("È·¶¨");
-//		
+//		JButton button_ok = new JButton("ç¡®å®š");
+//
 		jf = new JFrame("OPC Monitor");
 		jf.setBounds(200, 100, 350, 600);
 		ja = new JTextArea();
@@ -92,17 +92,17 @@ public class MainControlPanel {
 		ja.setEditable(false);
 		ja.setText(ja.getText()+"OPC-Client is running\n");
 		jf.setVisible(true);
-		
+
 	}
 
 	/**
-	 * ½«±äÁ¿Ãû±íÌí¼Óµ½·şÎñÆ÷
-	 * 
+	 * å°†å˜é‡åè¡¨æ·»åŠ åˆ°æœåŠ¡å™¨
+	 *
 	 * @param opc
-	 * OpcClientAPIÊµÀı
+	 * OpcClientAPIå®ä¾‹
 	 * @param connectionId
-	 * connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
-	 * @return Õı³£Ôò·µ»Ø0
+	 * connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
+	 * @return æ­£å¸¸åˆ™è¿”å›0
 	 */
 	public int setupItems(OpcClientAPI opc, int connectionId) {
 		/*
@@ -119,53 +119,53 @@ public class MainControlPanel {
 	}
 
 	/**
-	 * Ë¢ĞÂ±íÖĞËùÓĞ±äÁ¿µÄÖµ ²¢µ÷ÓÃcopyToLocal·½·¨´æ´¢µ½±¾µØ ´æ´¢ÓÚ±¾µØµÄÖµÓÃgetLocalµÄÒ»ÏµÁĞ·½·¨¼´¿É·ÃÎÊ
-	 * 
+	 * åˆ·æ–°è¡¨ä¸­æ‰€æœ‰å˜é‡çš„å€¼ å¹¶è°ƒç”¨copyToLocalæ–¹æ³•å­˜å‚¨åˆ°æœ¬åœ° å­˜å‚¨äºæœ¬åœ°çš„å€¼ç”¨getLocalçš„ä¸€ç³»åˆ—æ–¹æ³•å³å¯è®¿é—®
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
-	 * @return ³É¹¦·µ»Ø0£¬Ê§°Ü·µ»Ø-1
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
+	 * @return æˆåŠŸè¿”å›0ï¼Œå¤±è´¥è¿”å›-1
 	 */
 	public int refreshList(int connectionId) {
 		String firstItemName = opcInitList.get(connectionId).itemList.get(0).name;
-		if (firstItemName == null)      //ÕÒ²»µ½itemListÖĞµÚÒ»¸öOPC±äÁ¿µÄÃû×Ö ËµÃ÷itemListµ±Ç°Îª¿Õ£¬ÎŞĞèË¢ĞÂ£¬Ö±½Ó·µ»Ø
+		if (firstItemName == null)      //æ‰¾ä¸åˆ°itemListä¸­ç¬¬ä¸€ä¸ªOPCå˜é‡çš„åå­— è¯´æ˜itemListå½“å‰ä¸ºç©ºï¼Œæ— éœ€åˆ·æ–°ï¼Œç›´æ¥è¿”å›
 			return 0;
 		if (opcClientAPIList.get(connectionId).refreshAll(connectionId,
-				firstItemName) == -1)	//µ÷ÓÃµ×²ãº¯ÊıË¢ĞÂ±äÁ¿Óöµ½´íÎó£¬·µ»Ø-1
-			return -1;					
-		return copyToLocal(connectionId);	//ÔÚÎŞ´íÎóµÄÇé¿öÏÂ£¬µ÷ÓÃcopyToLocalº¯Êı½«ĞÂ»ñµÃµÄ±äÁ¿Êı¾İ´Óµ×²ã¸üĞÂµ½¶¥²ã¶ÔÓ¦µÄOpcItemµ±ÖĞ
+				firstItemName) == -1)	//è°ƒç”¨åº•å±‚å‡½æ•°åˆ·æ–°å˜é‡é‡åˆ°é”™è¯¯ï¼Œè¿”å›-1
+			return -1;
+		return copyToLocal(connectionId);	//åœ¨æ— é”™è¯¯çš„æƒ…å†µä¸‹ï¼Œè°ƒç”¨copyToLocalå‡½æ•°å°†æ–°è·å¾—çš„å˜é‡æ•°æ®ä»åº•å±‚æ›´æ–°åˆ°é¡¶å±‚å¯¹åº”çš„OpcItemå½“ä¸­
 	}
 
 	/**
-	 * ½²OPCµ×²ãĞÂ»ñµÃµÄ±äÁ¿Êı¾İ¸üĞÂµ½±¾µØ¶ÔÓ¦µÄOpcItem¶ÔÏóÖĞ
-	 * 
+	 * è®²OPCåº•å±‚æ–°è·å¾—çš„å˜é‡æ•°æ®æ›´æ–°åˆ°æœ¬åœ°å¯¹åº”çš„OpcItemå¯¹è±¡ä¸­
+	 *
 	 * @param connectionId
-	 * connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
-	 * @return ³É¹¦·µ»Ø0
+	 * connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
+	 * @return æˆåŠŸè¿”å›0
 	 */
 	public int copyToLocal(int connectionId) {
 		OpcItem oi;
 		Iterator<OpcItem> it = opcInitList.get(connectionId).itemList.iterator();
-		while (it.hasNext()) {  //¸ù¾İOpcItem¶ÔÏóµÄÀàĞÍµ÷ÓÃ¶ÔÓ¦µÄ·½·¨´Óµ×²ã»ñµÃÊı¾İ
+		while (it.hasNext()) {  //æ ¹æ®OpcItemå¯¹è±¡çš„ç±»å‹è°ƒç”¨å¯¹åº”çš„æ–¹æ³•ä»åº•å±‚è·å¾—æ•°æ®
 			oi = (OpcItem) it.next();
-			switch (oi.valueType) { 
-			case 4:
-				oi.fltVal = opcClientAPIList.get(connectionId).getFloatData(
-						connectionId, oi.name);
-				break;
-			case 5:
-				oi.dblVal = opcClientAPIList.get(connectionId).getDoubleData(
-						connectionId, oi.name);
-				break;
-			case 22:
-				oi.intVal = opcClientAPIList.get(connectionId).getIntData(
-						connectionId, oi.name);
-				break;
-			case 11:
-				System.out.println(oi.name+">>>"+opcClientAPIList.get(connectionId).getBoolData(
-						connectionId, oi.name));
-				oi.boolVal = opcClientAPIList.get(connectionId).getBoolData(
-						connectionId, oi.name);
-				break;
+			switch (oi.valueType) {
+				case 4:
+					oi.fltVal = opcClientAPIList.get(connectionId).getFloatData(
+							connectionId, oi.name);
+					break;
+				case 5:
+					oi.dblVal = opcClientAPIList.get(connectionId).getDoubleData(
+							connectionId, oi.name);
+					break;
+				case 22:
+					oi.intVal = opcClientAPIList.get(connectionId).getIntData(
+							connectionId, oi.name);
+					break;
+				case 11:
+					System.out.println(oi.name+">>>"+opcClientAPIList.get(connectionId).getBoolData(
+							connectionId, oi.name));
+					oi.boolVal = opcClientAPIList.get(connectionId).getBoolData(
+							connectionId, oi.name);
+					break;
 			}
 
 		}
@@ -173,13 +173,13 @@ public class MainControlPanel {
 	}
 
 	/**
-	 * »ñÈ¡±¾µØ´æ´¢ÖĞÄ³¸öµ¥¾«¶È¸¡µã(float)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * è·å–æœ¬åœ°å­˜å‚¨ä¸­æŸä¸ªå•ç²¾åº¦æµ®ç‚¹(float)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄµ¥¾«¶È¸¡µãÊıÖµ
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„å•ç²¾åº¦æµ®ç‚¹æ•°å€¼
 	 */
 	public float getLocalFloat(int connectionId, String itemName) {
 		OpcInit init = opcInitList.get(connectionId);
@@ -190,13 +190,13 @@ public class MainControlPanel {
 	}
 
 	/**
-	 * »ñÈ¡±¾µØ´æ´¢ÖĞÄ³¸öË«¾«¶È¸¡µã(double)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * è·å–æœ¬åœ°å­˜å‚¨ä¸­æŸä¸ªåŒç²¾åº¦æµ®ç‚¹(double)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄË«¾«¶È¸¡µãÊıÖµ
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„åŒç²¾åº¦æµ®ç‚¹æ•°å€¼
 	 */
 	public double getLocalDouble(int connectionId, String itemName) {
 		OpcInit init = opcInitList.get(connectionId);
@@ -207,13 +207,13 @@ public class MainControlPanel {
 	}
 
 	/**
-	 * »ñÈ¡±¾µØ´æ´¢ÖĞÄ³¸öÕûÊı(int)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * è·å–æœ¬åœ°å­˜å‚¨ä¸­æŸä¸ªæ•´æ•°(int)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄÕûĞÍÊıÖµ
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„æ•´å‹æ•°å€¼
 	 */
 	public int getLocalInt(int connectionId, String itemName) {
 		OpcInit init = opcInitList.get(connectionId);
@@ -224,13 +224,13 @@ public class MainControlPanel {
 	}
 
 	/**
-	 * »ñÈ¡±¾µØ´æ´¢ÖĞÄ³¸ö²¼¶ûĞÍ(boolean)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * è·å–æœ¬åœ°å­˜å‚¨ä¸­æŸä¸ªå¸ƒå°”å‹(boolean)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄ²¼¶ûĞÍÖµtrue/false
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„å¸ƒå°”å‹å€¼true/false
 	 */
 	public boolean getLocalBool(int connectionId, String itemName) {
 		OpcInit init = opcInitList.get(connectionId);
@@ -239,15 +239,15 @@ public class MainControlPanel {
 			return false;
 		return init.itemList.get(index).boolVal;
 	}
-	
+
 	/**
-	 * »ñÈ¡±¾µØ´æ´¢ÖĞÄ³¸ö×Ö·û´®(string)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * è·å–æœ¬åœ°å­˜å‚¨ä¸­æŸä¸ªå­—ç¬¦ä¸²(string)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄ×Ö·û´®Êı¾İ
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„å­—ç¬¦ä¸²æ•°æ®
 	 */
 	public String getLocalString(int connectionId, String itemName) {
 		OpcInit init = opcInitList.get(connectionId);
@@ -259,13 +259,13 @@ public class MainControlPanel {
 
 
 	/**
-	 * Í¨¹ıJNI´Óµ×²ã»ñÈ¡Ä³¸öµ¥¾«¶È¸¡µã(float)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * é€šè¿‡JNIä»åº•å±‚è·å–æŸä¸ªå•ç²¾åº¦æµ®ç‚¹(float)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄµ¥¾«¶È¸¡µãÖµ
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„å•ç²¾åº¦æµ®ç‚¹å€¼
 	 */
 	public float getFloatData(int connectionId, String itemName) {
 		return opcClientAPIList.get(connectionId).getFloatData(connectionId,
@@ -273,13 +273,13 @@ public class MainControlPanel {
 	}
 
 	/**
-	 * Í¨¹ıJNI´Óµ×²ã»ñÈ¡Ä³¸öË«¾«¶È¸¡µã(double)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * é€šè¿‡JNIä»åº•å±‚è·å–æŸä¸ªåŒç²¾åº¦æµ®ç‚¹(double)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄË«¾«¶È¸¡µãÖµ
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„åŒç²¾åº¦æµ®ç‚¹å€¼
 	 */
 	public double getDoubleData(int connectionId, String itemName) {
 		return opcClientAPIList.get(connectionId).getDoubleData(connectionId,
@@ -287,13 +287,13 @@ public class MainControlPanel {
 	}
 
 	/**
-	 * Í¨¹ıJNI´Óµ×²ã»ñÈ¡Ä³¸öÕûÊı(int)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * é€šè¿‡JNIä»åº•å±‚è·å–æŸä¸ªæ•´æ•°(int)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄÕûĞÍÖµ
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„æ•´å‹å€¼
 	 */
 	public int getIntData(int connectionId, String itemName) {
 		return opcClientAPIList.get(connectionId).getIntData(connectionId,
@@ -301,51 +301,51 @@ public class MainControlPanel {
 	}
 
 	/**
-	 * Í¨¹ıJNI´Óµ×²ã»ñÈ¡Ä³¸ö²¼¶ûĞÍ(boolean)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * é€šè¿‡JNIä»åº•å±‚è·å–æŸä¸ªå¸ƒå°”å‹(boolean)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄ²¼¶ûĞÍÖµtrue/false
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„å¸ƒå°”å‹å€¼true/false
 	 */
 	public boolean getBoolData(int connectionId, String itemName) {
 		return opcClientAPIList.get(connectionId).getBoolData(connectionId,
 				itemName);
 	}
-	
+
 	/**
-	 * Í¨¹ıJNI´Óµ×²ã»ñÈ¡Ä³¸ö×Ö·û´®(string)Êı¾İÀàĞÍÔªËØ(Item)µÄÖµ
-	 * 
+	 * é€šè¿‡JNIä»åº•å±‚è·å–æŸä¸ªå­—ç¬¦ä¸²(string)æ•°æ®ç±»å‹å…ƒç´ (Item)çš„å€¼
+	 *
 	 * @param connectionId
-	 *            connectionIdÇø·Ö¶à¸öOPCÁ¬½Ó
+	 *            connectionIdåŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param itemName
-	 *            ·ÃÎÊµÄÔªËØ(item)Ãû³Æ
-	 * @return ÔªËØµÄ×Ö·û´®Êı¾İ
+	 *            è®¿é—®çš„å…ƒç´ (item)åç§°
+	 * @return å…ƒç´ çš„å­—ç¬¦ä¸²æ•°æ®
 	 */
 	public String getStringData(int connectionId, String itemName) {
 		return opcClientAPIList.get(connectionId).getStringData(connectionId,
 				itemName);
 	}
-	
+
 	/**
-	 * ÒÔÒ»¶¨µÄÊ±¼ä¼ä¸ô×Ô¶¯Ë¢ĞÂÊı¾İ²¢ÉÏ´«
+	 * ä»¥ä¸€å®šçš„æ—¶é—´é—´éš”è‡ªåŠ¨åˆ·æ–°æ•°æ®å¹¶ä¸Šä¼ 
 	 * @param connectionId
-	 * Çø·Ö¶à¸öOPCÁ¬½Ó
+	 * åŒºåˆ†å¤šä¸ªOPCè¿æ¥
 	 * @param millisecond
-	 * ¼ä¸ôÊ±¼ä£¨ºÁÃë£©
-	 * @throws Exception 
+	 * é—´éš”æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰
+	 * @throws Exception
 	 */
 	public void autoSubmit(int connectionId, int millisecond) throws Exception {
 		//int testCnt=0;
 		while (true) {
-			
-			ReceiveCommand(); //Ã¿¸öÑ­»·ÖÜÆÚÏÈ¼ì²éÊÇ·ñÓĞÏÂ·¢ÇëÇó£¬ÓĞÔòÏÈÖ´ĞĞÊı¾İÏÂ·¢²Ù×÷
-			OpcInit init = opcInitList.get(connectionId);//¸ù¾İconnectionId»ñÈ¡µ½µ±Ç°Òª´¦ÀíµÄ·şÎñÆ÷¶ÔÓ¦µÄOpcItem¶ÔÏó
-			refreshList(connectionId);  //Ë¢ĞÂÕû¸öµ±Ç°Òª´¦ÀíµÄ·şÎñÆ÷ÏÂµÄËùÓĞOPC±äÁ¿µÄÊı¾İ
+
+			ReceiveCommand(); //æ¯ä¸ªå¾ªç¯å‘¨æœŸå…ˆæ£€æŸ¥æ˜¯å¦æœ‰ä¸‹å‘è¯·æ±‚ï¼Œæœ‰åˆ™å…ˆæ‰§è¡Œæ•°æ®ä¸‹å‘æ“ä½œ
+			OpcInit init = opcInitList.get(connectionId);//æ ¹æ®connectionIdè·å–åˆ°å½“å‰è¦å¤„ç†çš„æœåŠ¡å™¨å¯¹åº”çš„OpcItemå¯¹è±¡
+			refreshList(connectionId);  //åˆ·æ–°æ•´ä¸ªå½“å‰è¦å¤„ç†çš„æœåŠ¡å™¨ä¸‹çš„æ‰€æœ‰OPCå˜é‡çš„æ•°æ®
 			Iterator<OpcItem> it = opcInitList.get(init.connectionId).itemList
 					.iterator();
-			while (it.hasNext()) {   //µü´ú·ÃÎÊ¸÷OPC±äÁ¿£¬Êä³ö¡¢ÉÏ´«Êı¾İ
+			while (it.hasNext()) {   //è¿­ä»£è®¿é—®å„OPCå˜é‡ï¼Œè¾“å‡ºã€ä¸Šä¼ æ•°æ®
 				System.out.println(getLocalInt(init.connectionId,
 						opcInitList.get(init.connectionId).itemList
 								.get(0).name));
@@ -354,49 +354,49 @@ public class MainControlPanel {
 				float tmp1;
 				int tmp2;
 				switch (oi.valueType) {
-				case 4:
-					tmp1 = getLocalFloat(init.connectionId, oi.name);
-				//	sql += "VALUE=" + String.valueOf(tmp1);
-					components.UpAnalogOpcData(
-							String.valueOf(basicAddr),
-							oi.address, "0",tmp1);
-					System.out.println(oi.name+">>>"+tmp1);
-					addToBoard(oi.name+">>>"+tmp1);
-					break;
-				case 5:
-					tmp1 = (float) getLocalDouble(init.connectionId,
-							oi.name);
-					//sql += "VALUE=" + String.valueOf(tmp1);
-					components.UpAnalogOpcData(
-							String.valueOf(basicAddr),
-							oi.address, "0", tmp1);
-					System.out.println(oi.name+">>>"+tmp1);
-					addToBoard(oi.name+">>>"+tmp1);
-					break;
-				case 22:
-					tmp1 = (float) getLocalInt(init.connectionId,
-							oi.name);
-					//sql += "VALUE=" + String.valueOf(tmp1);
-					components.UpAnalogOpcData(
-							String.valueOf(basicAddr),
-							oi.address,  "0",tmp1);
-					System.out.println(oi.name+">>>"+tmp1);
-					addToBoard(oi.name+">>>"+tmp1);
-					break;
-				case 11:
-					tmp2 = getLocalBool(init.connectionId, oi.name) == true ? 1
-							: 0;
-					//sql += "VALUE=" + String.valueOf(tmp2);
+					case 4:
+						tmp1 = getLocalFloat(init.connectionId, oi.name);
+						//	sql += "VALUE=" + String.valueOf(tmp1);
+						components.UpAnalogOpcData(
+								String.valueOf(basicAddr),
+								oi.address, "0",tmp1);
+						System.out.println(oi.name+">>>"+tmp1);
+						addToBoard(oi.name+">>>"+tmp1);
+						break;
+					case 5:
+						tmp1 = (float) getLocalDouble(init.connectionId,
+								oi.name);
+						//sql += "VALUE=" + String.valueOf(tmp1);
+						components.UpAnalogOpcData(
+								String.valueOf(basicAddr),
+								oi.address, "0", tmp1);
+						System.out.println(oi.name+">>>"+tmp1);
+						addToBoard(oi.name+">>>"+tmp1);
+						break;
+					case 22:
+						tmp1 = (float) getLocalInt(init.connectionId,
+								oi.name);
+						//sql += "VALUE=" + String.valueOf(tmp1);
+						components.UpAnalogOpcData(
+								String.valueOf(basicAddr),
+								oi.address,  "0",tmp1);
+						System.out.println(oi.name+">>>"+tmp1);
+						addToBoard(oi.name+">>>"+tmp1);
+						break;
+					case 11:
+						tmp2 = getLocalBool(init.connectionId, oi.name) == true ? 1
+								: 0;
+						//sql += "VALUE=" + String.valueOf(tmp2);
 //					components.UpDigitalData(
 //							String.valueOf(basicAddr),
 //							oi.address, "0", tmp2);
-					System.out.println(oi.name+">>>"+tmp2);
-					addToBoard(oi.name+">>>"+tmp2);
-					break;
+						System.out.println(oi.name+">>>"+tmp2);
+						addToBoard(oi.name+">>>"+tmp2);
+						break;
 				}
-				
+
 				// sql+=" where PLC_ID='"+oi.address+"'";
-				
+
 				/*
 				sql += " where DEVICE_ID='"
 						+ String.valueOf(basicAddr)
@@ -430,46 +430,46 @@ public class MainControlPanel {
 //		PublishComponentImpl comp = new PublishComponentImpl();
 //		comp.publish("http://" + conf.getUrl() + ":" + conf.getPort() + "/" + conf.getServicename(), "http://" + ServicemixConfFactory.conf.getUrl() + ":" + ServicemixConfFactory.conf.getPort(), topic, content);
 //	}
-//	
+//
 //	public String objectToUpdateMsg( ArrayList<HeatingPoint> heatArray ) {
 //		StringBuilder builder = new StringBuilder();
 //		builder.append("<coolsql xmlns=\"\" xmlns:ns6=\"http://docs.oasis-open.org/wsn/b-2\">");
-//		
+//
 //		for ( int i = 0; i <= heatArray.size() - 1; i++ ) {
 //			HeatingPoint q = heatArray.get(i);
-//			
+//
 //			if ( q.getDataType() == 0 ) {
 //				GLAnalogMeasure gam = (GLAnalogMeasure)q;
-//				builder.append("<Sql>update GL_ANALOG_MEASURE set timestamp = timestamp '" + gam.getTimeStamp() + "', date = date '" + gam.getDate() + "', time = time '" + gam.getTime() + "', value = " + gam.getValue() + ", outbound = " + 
-//									gam.getOutbound() + " where device_id = '" + gam.getDeviceID() + "' and plc_id = '" + gam.getPLCID() + "' and sensor_id = '" + 
+//				builder.append("<Sql>update GL_ANALOG_MEASURE set timestamp = timestamp '" + gam.getTimeStamp() + "', date = date '" + gam.getDate() + "', time = time '" + gam.getTime() + "', value = " + gam.getValue() + ", outbound = " +
+//									gam.getOutbound() + " where device_id = '" + gam.getDeviceID() + "' and plc_id = '" + gam.getPLCID() + "' and sensor_id = '" +
 //									gam.getSensorID() + "';</Sql>");
 //			}
-//		
+//
 //			else if ( q.getDataType() == 2 ) {
 //				GLDigitalMeasure gdm = (GLDigitalMeasure)q;
-//				builder.append("<Sql>update GL_DIGITAL_MEASURE set timestamp = timestamp '" + gdm.getTimestamp() + "', date = date '" + gdm.getDate() + "', time = time '" + gdm.getTime() + "', value = " + gdm.getValue() + ", open = " + 
+//				builder.append("<Sql>update GL_DIGITAL_MEASURE set timestamp = timestamp '" + gdm.getTimestamp() + "', date = date '" + gdm.getDate() + "', time = time '" + gdm.getTime() + "', value = " + gdm.getValue() + ", open = " +
 //									gdm.getOpen() + ", close = " + gdm.getClose() + ", isbeyond = " + gdm.getIsbeyond() + ", state = " + gdm.getState() +
-//									" where device_id = '" + gdm.getDeviceID() + "' and plc_id = '" + gdm.getPLCID() + "' and sensor_id = '" + gdm.getSensorID() 
+//									" where device_id = '" + gdm.getDeviceID() + "' and plc_id = '" + gdm.getPLCID() + "' and sensor_id = '" + gdm.getSensorID()
 //									+ "';</Sql>");
 //			}
-//		
+//
 //			else if ( q.getDataType() == 4 ) {
 //				RJLAnalogMeasure ram = (RJLAnalogMeasure)q;
-//				builder.append("<Sql>update RJL_ANALOG_MEASURE set timestamp = timestamp '" + ram.getTimestamp() + "', date = date '" + ram.getDate() + "', time = time '" + ram.getTime() + "', value = " + ram.getValue() + ", outbound = " + 
-//					ram.getOutbound() + " where device_id = '" + ram.getDeviceID() + "' and plc_id = '" + ram.getPLCID() + "' and sensor_id = '" + 
+//				builder.append("<Sql>update RJL_ANALOG_MEASURE set timestamp = timestamp '" + ram.getTimestamp() + "', date = date '" + ram.getDate() + "', time = time '" + ram.getTime() + "', value = " + ram.getValue() + ", outbound = " +
+//					ram.getOutbound() + " where device_id = '" + ram.getDeviceID() + "' and plc_id = '" + ram.getPLCID() + "' and sensor_id = '" +
 //					ram.getSensorID() + "';</Sql>");
 //			}
-//		
+//
 //			else if ( q.getDataType() == 6 ) {
 //				RJLDigitalMeasure rdm = (RJLDigitalMeasure)q;
-//				builder.append("<Sql>update RJL_DIGITAL_MEASURE set timestamp = timestamp '" + rdm.getTimestamp() + "', date = date '" + rdm.getDate() + "', time = time '" + rdm.getTime() + "', value = " + rdm.getValue() + ", open = " + 
+//				builder.append("<Sql>update RJL_DIGITAL_MEASURE set timestamp = timestamp '" + rdm.getTimestamp() + "', date = date '" + rdm.getDate() + "', time = time '" + rdm.getTime() + "', value = " + rdm.getValue() + ", open = " +
 //					rdm.getOpen() + ", close = " + rdm.getClose() + ", isbeyond = " + rdm.getIsbeyond() + ", state = " + rdm.getState() +
-//					" where device_id = '" + rdm.getDeviceID() + "' and plc_id = '" + rdm.getPLCID() + "' and sensor_id = '" + rdm.getSensorID() 
+//					" where device_id = '" + rdm.getDeviceID() + "' and plc_id = '" + rdm.getPLCID() + "' and sensor_id = '" + rdm.getSensorID()
 //					+ "';</Sql>");
 //			}
-//			
+//
 //		}
-//		
+//
 //		heatArray.clear();
 //		builder.append("<Level>realtime</Level>");
 //		builder.append("</coolsql>");
@@ -497,25 +497,25 @@ public class MainControlPanel {
 //	}
 //
 //	/**
-//	 * ÉÏ´«¿ª¹ØÁ¿
-//	 * 
+//	 * ä¸Šä¼ å¼€å…³é‡
+//	 *
 //	 * @param address
-//	 *            ĞéÄâDEVICE_IDµØÖ· Çø·Ö·şÎñÆ÷
+//	 *            è™šæ‹ŸDEVICE_IDåœ°å€ åŒºåˆ†æœåŠ¡å™¨
 //	 * @param plcAddress
-//	 *            ĞéÄâPLC_IDµØÖ· Çø·Ö±äÁ¿Ãû
+//	 *            è™šæ‹ŸPLC_IDåœ°å€ åŒºåˆ†å˜é‡å
 //	 * @param sensorAddr
-//	 *            ÎŞÒâÒå Ê¹ÓÃ0×ö²ÎÊı
+//	 *            æ— æ„ä¹‰ ä½¿ç”¨0åšå‚æ•°
 //	 * @param value
-//	 *            ÉÏ´«µÄÊıÖµ
+//	 *            ä¸Šä¼ çš„æ•°å€¼
 //	 */
 //	public void UpDigitalData(String address, String plcAddress,
 //			String sensorAddr, int value) {
 //		// under construction......
 //		DataAnalyzeComponent analyzeComponent = new DataAnalyzeComponentImpl();
 //		// String date = new Date().toString();
-//		// String result = "½âÎöºó£º\n" + date + "Éè±¸µØÖ·:" + address + "\n";
-//		// result = result.concat("´Ó»úµØÖ·:" + "" + plcAddress + "\n");
-//		// result = result.concat("´«¸ĞÆ÷µØÖ·:" + "" + sensorAddr[1] + sensorAddr[0]
+//		// String result = "è§£æåï¼š\n" + date + "è®¾å¤‡åœ°å€:" + address + "\n";
+//		// result = result.concat("ä»æœºåœ°å€:" + "" + plcAddress + "\n");
+//		// result = result.concat("ä¼ æ„Ÿå™¨åœ°å€:" + "" + sensorAddr[1] + sensorAddr[0]
 //		// + "\n");
 //		// MsgReceiverFactory.receiver.receive(result);
 //		DataBaseComponent t = new DataBaseComponentImpl();
@@ -540,8 +540,8 @@ public class MainControlPanel {
 //		}
 //
 //		System.out.println("Up");
-//		System.out.println("Éè±¸µØÖ·ÊÇ: " + address + "PLC±àºÅ: " + plcAddress
-//				+ "´«¸ĞÆ÷µØÖ·:" + sensorString);
+//		System.out.println("è®¾å¤‡åœ°å€æ˜¯: " + address + "PLCç¼–å·: " + plcAddress
+//				+ "ä¼ æ„Ÿå™¨åœ°å€:" + sensorString);
 //		try {
 //			MsgReceiverFactory.receiver.receiveOpc(address, "" + plcAddress,
 //					sensorString, value, format.format(date));
@@ -575,7 +575,7 @@ public class MainControlPanel {
 //					Timestamp.valueOf(format.format(date)));
 //
 //			if (!isRedundant) {
-//				// ×ÊÔ´°ó¶¨
+//				// èµ„æºç»‘å®š
 //				String instanceMsg = analyzeComponent.resouceInstanceBinding(q);
 //				float values = 0f;
 //				System.out.println(instanceMsg);
@@ -698,7 +698,7 @@ public class MainControlPanel {
 //					e.printStackTrace();
 //				}
 //
-//				// ÊÂ¼şÉú³É
+//				// äº‹ä»¶ç”Ÿæˆ
 //				int outbound = analyzeComponent.checkOutbound(q);
 //				System.out.println("outbound:" + outbound);
 //				int types = q.getDataType();
@@ -772,16 +772,16 @@ public class MainControlPanel {
 //	}
 //
 //	/**
-//	 * ÉÏ´«Ä£ÄâÁ¿
-//	 * 
+//	 * ä¸Šä¼ æ¨¡æ‹Ÿé‡
+//	 *
 //	 * @param address
-//	 *            ĞéÄâDEVICE_IDµØÖ· Çø·Ö·şÎñÆ÷
+//	 *            è™šæ‹ŸDEVICE_IDåœ°å€ åŒºåˆ†æœåŠ¡å™¨
 //	 * @param plcAddress
-//	 *            ĞéÄâPLC_IDµØÖ· Çø·Ö±äÁ¿Ãû
+//	 *            è™šæ‹ŸPLC_IDåœ°å€ åŒºåˆ†å˜é‡å
 //	 * @param sensorAddr
-//	 *            ÎŞÒâÒå Ê¹ÓÃ0×ö²ÎÊı
+//	 *            æ— æ„ä¹‰ ä½¿ç”¨0åšå‚æ•°
 //	 * @param value
-//	 *            ÉÏ´«µÄÊıÖµ
+//	 *            ä¸Šä¼ çš„æ•°å€¼
 //	 */
 //	public void UpAnalogData(String address, String plcAddress,
 //			String sensorAddr, float value) {
@@ -808,17 +808,17 @@ public class MainControlPanel {
 ////		}
 //        //Modified
 //		date = new Date();
-//		
+//
 //		System.out.println("Up");
-//		System.out.println("Éè±¸µØÖ·ÊÇ: " + address + "PLC±àºÅ: " + plcAddress
-//				+ "´«¸ĞÆ÷µØÖ·:" + sensorString);
-//		
+//		System.out.println("è®¾å¤‡åœ°å€æ˜¯: " + address + "PLCç¼–å·: " + plcAddress
+//				+ "ä¼ æ„Ÿå™¨åœ°å€:" + sensorString);
+//
 //		System.out.println(address);
 //		System.out.println("" + plcAddress);
 //		System.out.println(sensorString);
 //		System.out.println(value);
 //		System.out.println(format.format(date));
-//		
+//
 //		try {
 //			MsgReceiverFactory.receiver.receiveOpc(address, "" + plcAddress,
 //					sensorString, value, format.format(date));
@@ -834,8 +834,8 @@ public class MainControlPanel {
 //		HeatingPoint q = new GLAnalogMeasure();
 //		Timestamp ts = new Timestamp(System.currentTimeMillis());
 //		((GLAnalog)q).setTimeStamp(ts);
-//		
-//		
+//
+//
 //		/*
 //		try {
 //			q = analyzeComponent.checkDataType(address, "" + plcAddress,
@@ -848,13 +848,13 @@ public class MainControlPanel {
 //			e.printStackTrace();
 //		}
 //		*/
-//		
+//
 //		q.setDataType(0);
 //		q.setDeviceID(address);
 //		q.setPLCID(plcAddress);
 //		q.setSensorID("0");
 //		//((GLAnalogMeasure)q).setValue(value);
-//		
+//
 //
 //		if (q == null) {
 //			System.out.println("Message error");
@@ -865,7 +865,7 @@ public class MainControlPanel {
 //					Timestamp.valueOf(format.format(date)));
 //
 //			if (!isRedundant) {
-//				// ×ÊÔ´°ó¶¨
+//				// èµ„æºç»‘å®š
 //				String instanceMsg = analyzeComponent.resouceInstanceBinding(q);
 //				float values = 0f;
 //				System.out.println(instanceMsg);
@@ -882,7 +882,7 @@ public class MainControlPanel {
 //						glm.setTime(java.sql.Time.valueOf(format2.format(
 //								new Date()).split(" ")[1]));
 //						/**
-//						 * ÓĞĞŞ¸Ä£¡
+//						 * æœ‰ä¿®æ”¹ï¼
 //						 */
 //						/*
 //						glm.setValue(analyzeComponent.offsetCalculate(
@@ -985,7 +985,7 @@ public class MainControlPanel {
 //				// ServicemixConfFactory.conf.getPort(), instanceMsg,
 //				// publishMsg);
 //
-//				// ÊÂ¼şÉú³É
+//				// äº‹ä»¶ç”Ÿæˆ
 //				int outbound = analyzeComponent.checkOutbound(q);
 //				System.out.println("outbound:" + outbound);
 //				int types = q.getDataType();
@@ -1059,9 +1059,9 @@ public class MainControlPanel {
 //	}
 
 	/**
-	 * ¼ì²é²¢Ö´ĞĞÏÂ·¢ÃüÁî
-	 * ÏÂ·¢ÃüÁîÊ±ÇëÖ±½ÓĞŞ¸ÄMainControlPanelÊµÀıÖĞµÄdownAddress,downPlcAddress,downDataType
-	 * ,downValue ²¢½«needDownload±ê¼ÇÎªtrue
+	 * æ£€æŸ¥å¹¶æ‰§è¡Œä¸‹å‘å‘½ä»¤
+	 * ä¸‹å‘å‘½ä»¤æ—¶è¯·ç›´æ¥ä¿®æ”¹MainControlPanelå®ä¾‹ä¸­çš„downAddress,downPlcAddress,downDataType
+	 * ,downValue å¹¶å°†needDownloadæ ‡è®°ä¸ºtrue
 	 */
 	public void ReceiveCommand() {
 		if (needDownload == true) {
@@ -1069,7 +1069,7 @@ public class MainControlPanel {
 			int realId = Integer.valueOf(downAddress);
 			String itemName = opcInitList.get(realId).getItemNameByAddress(
 					downPlcAddress);
-			//¸ù¾İÏÂ·¢Êı¾İµÄÊı¾İÀàĞÍ£¬Ñ¡Ôñ¶ÔÓ¦µÄwrite·½·¨Ğ´Êı¾İµ½·şÎñÆ÷
+			//æ ¹æ®ä¸‹å‘æ•°æ®çš„æ•°æ®ç±»å‹ï¼Œé€‰æ‹©å¯¹åº”çš„writeæ–¹æ³•å†™æ•°æ®åˆ°æœåŠ¡å™¨
 			if (downDataType == 0) {
 				opcClientAPIList.get(realId).writeFloatSync(realId, itemName,
 						downValue);
@@ -1079,7 +1079,7 @@ public class MainControlPanel {
 			}
 		}
 	}
-	
+
 	public void addToBoard(String str){
 		ja.setText(ja.getText()+str+"\n");
 		ja.setCaretPosition(ja.getText().length());
@@ -1095,20 +1095,20 @@ public class MainControlPanel {
 			OpcClientAPI opc = new OpcClientAPI();
 			opcClientAPIList.add(opc);
 			if (opc.connect(init.IPAddress, init.serverName, init.groupName) == 0){
-				System.out.println("³É¹¦Á¬½ÓÖÁOPC·şÎñÆ÷"+init.IPAddress+" "+init.serverName+" "+init.groupName);
-				addToBoard("³É¹¦Á¬½ÓÖÁOPC·şÎñÆ÷"+init.IPAddress+" "+init.serverName+" "+init.groupName);
+				System.out.println("æˆåŠŸè¿æ¥è‡³OPCæœåŠ¡å™¨"+init.IPAddress+" "+init.serverName+" "+init.groupName);
+				addToBoard("æˆåŠŸè¿æ¥è‡³OPCæœåŠ¡å™¨"+init.IPAddress+" "+init.serverName+" "+init.groupName);
 			}
 			else{
-				System.out.println("Á¬½ÓOPC·şÎñÆ÷Ê§°Ü");
-				addToBoard("Á¬½ÓOPC·şÎñÆ÷Ê§°Ü");
+				System.out.println("è¿æ¥OPCæœåŠ¡å™¨å¤±è´¥");
+				addToBoard("è¿æ¥OPCæœåŠ¡å™¨å¤±è´¥");
 			}
 			if (setupItems(opc, init.connectionId)==0){
-				System.out.println("³É¹¦ÅäÖÃOPC±äÁ¿");
-				addToBoard("³É¹¦ÅäÖÃOPC±äÁ¿");
+				System.out.println("æˆåŠŸé…ç½®OPCå˜é‡");
+				addToBoard("æˆåŠŸé…ç½®OPCå˜é‡");
 			}
 			else{
-				System.out.println("ÅäÖÃOPC±äÁ¿Ê§°Ü");
-				addToBoard("ÅäÖÃOPC±äÁ¿Ê§°Ü");
+				System.out.println("é…ç½®OPCå˜é‡å¤±è´¥");
+				addToBoard("é…ç½®OPCå˜é‡å¤±è´¥");
 			}
 			try {
 				autoSubmit(init.connectionId, submitFrequency);
@@ -1118,19 +1118,19 @@ public class MainControlPanel {
 			}
 		}
 	}
-	
-	
+
+
 	/**
-	 * ²âÊÔÓÃ
-	 * 
+	 * æµ‹è¯•ç”¨
+	 *
 	 * @param args
-	 * @throws SQLException 
-	 * @throws UnsupportedLookAndFeelException 
-	 * @throws IOException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
-	 * @throws ClassNotFoundException 
-	 * 
+	 * @throws SQLException
+	 * @throws UnsupportedLookAndFeelException
+	 * @throws IOException
+	 * @throws IllegalAccessException
+	 * @throws InstantiationException
+	 * @throws ClassNotFoundException
+	 *
 	 */
 	public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, UnsupportedLookAndFeelException, SQLException {
 		MsgReceiverFactory factory = new MsgReceiverFactory();

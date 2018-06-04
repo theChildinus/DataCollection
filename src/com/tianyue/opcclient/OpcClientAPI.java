@@ -2,9 +2,9 @@ package com.tianyue.opcclient;
 
 
 /**
- * OpcClientAPIÊµÏÖOPCÍ¨ĞÅÏà¹Ø¹¦ÄÜ
- * Ã¿¸öOpcClientAPIÊµÀı¶ÔÓ¦Ä³Ò»¸öserver-group×éºÏ
- * Èç¹ûĞèÒª·ÃÎÊ¶à¸öserver»ògroup£¬Çënew¶à¸öopcInitÊµÀı²¢·Ö±ğÅäÖÃ£¬²¢new¶à¸öOpcClientAPIÊµÀı·Ö±ğ´¦Àí£©
+ * OpcClientAPIå®ç°OPCé€šä¿¡ç›¸å…³åŠŸèƒ½
+ * æ¯ä¸ªOpcClientAPIå®ä¾‹å¯¹åº”æŸä¸€ä¸ªserver-groupç»„åˆ
+ * å¦‚æœéœ€è¦è®¿é—®å¤šä¸ªserveræˆ–groupï¼Œè¯·newå¤šä¸ªopcInitå®ä¾‹å¹¶åˆ†åˆ«é…ç½®ï¼Œå¹¶newå¤šä¸ªOpcClientAPIå®ä¾‹åˆ†åˆ«å¤„ç†ï¼‰
  * 
  * @author tian
  *
@@ -17,44 +17,44 @@ public class OpcClientAPI {
 		System.loadLibrary("opc");
 	}
 	/**
-	 * ½¨Á¢OPCÁ¬½Ó
+	 * å»ºç«‹OPCè¿æ¥
 	 * @param IPAddress
-	 * OPC·şÎñÆ÷IPµØÖ·
+	 * OPCæœåŠ¡å™¨IPåœ°å€
 	 * @param serverName
-	 * OPC·şÎñÆ÷Ãû
+	 * OPCæœåŠ¡å™¨å
 	 * @param groupName
-	 * OPC·şÎñÆ÷×éÃû£¬Ò»°ãÇé¿öÏÂÎªgroup0
+	 * OPCæœåŠ¡å™¨ç»„åï¼Œä¸€èˆ¬æƒ…å†µä¸‹ä¸ºgroup0
 	 * @return
 	 */
 	public native int connect(String IPAddress, String serverName,
 			String groupName);
 	/**
-	 * ±¾µØ·½·¨£ºÌí¼ÓOPC±äÁ¿
+	 * æœ¬åœ°æ–¹æ³•ï¼šæ·»åŠ OPCå˜é‡
 	 * @param connectionId
-	 * ÓÃÓÚÇø·ÖÓë¶à¸öOPC·şÎñÆ÷µÄÁ¬½Ó
+	 * ç”¨äºåŒºåˆ†ä¸å¤šä¸ªOPCæœåŠ¡å™¨çš„è¿æ¥
 	 * @param itemName
-	 * OPC±äÁ¿Ãû
+	 * OPCå˜é‡å
 	 * @param itemType
-	 * ±äÁ¿ÀàĞÍ
+	 * å˜é‡ç±»å‹
 	 * @param isActive
-	 * ÊÇ·ñ»î¶¯£¬´Ë´¦Ó¦±ê¼ÇÎª»î¶¯(true)
+	 * æ˜¯å¦æ´»åŠ¨ï¼Œæ­¤å¤„åº”æ ‡è®°ä¸ºæ´»åŠ¨(true)
 	 * @return
 	 */
 	public native int addItem(int connectionId, String itemName, int itemType, boolean isActive);
-    //ÒÔÏÂread...Sync·½·¨Îªµ×²ãÊµÏÖ¶ÁÈ¡µÄ·½·¨£¬ÒÑ¾­ÔÚ¶¥²ã½á¹¹ÖĞÔÙ´Î°ü×°£¬²»ĞèÒªÖ±½Óµ÷ÓÃÈçÏÂ·½·¨
+    //ä»¥ä¸‹read...Syncæ–¹æ³•ä¸ºåº•å±‚å®ç°è¯»å–çš„æ–¹æ³•ï¼Œå·²ç»åœ¨é¡¶å±‚ç»“æ„ä¸­å†æ¬¡åŒ…è£…ï¼Œä¸éœ€è¦ç›´æ¥è°ƒç”¨å¦‚ä¸‹æ–¹æ³•
 	public native float readFloatSync(int connectionId, String itemName);
 	public native double readDoubleSync(int connectionId, String itemName);
 	public native int readIntSync(int connectionId, String itemName);
 	public native boolean readBoolSync(int connectionId, String itemName);
 	public native String readStringSync(int connectionId, String itemName);
-	//ÒÔÏÂget...Data·½·¨Îª´Óµ×²ã½á¹¹ÖĞ¶ÁÈ¡Êı¾İµÄ·½·¨£¬ÒÑ¾­ÔÚ¶¥²ã½á¹¹ÖĞÔÙ´Î°ü×°£¬²»ĞèÒªÖ±½Óµ÷ÓÃÈçÏÂ·½·¨
+	//ä»¥ä¸‹get...Dataæ–¹æ³•ä¸ºä»åº•å±‚ç»“æ„ä¸­è¯»å–æ•°æ®çš„æ–¹æ³•ï¼Œå·²ç»åœ¨é¡¶å±‚ç»“æ„ä¸­å†æ¬¡åŒ…è£…ï¼Œä¸éœ€è¦ç›´æ¥è°ƒç”¨å¦‚ä¸‹æ–¹æ³•
 	public native float getFloatData(int connectionId, String itemName);
 	public native double getDoubleData(int connectionId, String itemName);
 	public native int getIntData(int connectionId, String itemName);
 	public native boolean getBoolData(int connectionId, String itemName);
 	public native String getStringData(int connectionId, String itemName);
 	public native String getTimeStamp(int connectionId, String itemName);
-	//ÒÔÏÂwrite...Sync·½·¨Îªµ÷ÓÃµ×²ãĞ´Êı¾İµ½·şÎñÆ÷µÄ·½·¨
+	//ä»¥ä¸‹write...Syncæ–¹æ³•ä¸ºè°ƒç”¨åº•å±‚å†™æ•°æ®åˆ°æœåŠ¡å™¨çš„æ–¹æ³•
 	public native int writeFloatSync(int connectionId, String itemName, float value);
 	public native int writeDoubleSync(int connectionId, String itemName, double value);
 	public native int writeIntSync(int connectionId, String itemName, int value);
@@ -65,24 +65,24 @@ public class OpcClientAPI {
 	public native void shutdownServer(int connectionId);
 	
 	/**
-	 * ÓÉÓÚĞèÇóÒªÇóË¢ĞÂËùÓĞÊı¾İ£¬¹ÊÔÚµ×²ã×öÁËĞŞ¸Ä£º
-	 * read...Syncº¯Êı·µ»ØµÄÊÇ²ÎÊıÖĞÖ¸¶¨µÄ±äÁ¿ÃûµÄÖµ
-	 * µ«Êµ¼ÊÉÏ¸Ã±äÁ¿ËùÔÚµÄ·şÎñÆ÷ÏÂµÄËùÓĞÊı¾İ¶¼ÒÑ¾­¸üĞÂµ½ÁËµ×²ãµÄÊı¾İ½á¹¹µ±ÖĞ
-	 * Ö®ºóÖ»ĞèÒªµ÷ÓÃget...Data¼´¿ÉÈ¡µÃÊı¾İ
-	 * ËùÒÔÓÃÓÚÈ«²¿Ë¢ĞÂµ½µ×²ãµÄrefreshAll·½·¨µÄ¿ÉÒÔÓÉ¶ÁÈ¡Ò»¸öOPC±äÁ¿µÄ·½·¨ÊµÏÖ
+	 * ç”±äºéœ€æ±‚è¦æ±‚åˆ·æ–°æ‰€æœ‰æ•°æ®ï¼Œæ•…åœ¨åº•å±‚åšäº†ä¿®æ”¹ï¼š
+	 * read...Syncå‡½æ•°è¿”å›çš„æ˜¯å‚æ•°ä¸­æŒ‡å®šçš„å˜é‡åçš„å€¼
+	 * ä½†å®é™…ä¸Šè¯¥å˜é‡æ‰€åœ¨çš„æœåŠ¡å™¨ä¸‹çš„æ‰€æœ‰æ•°æ®éƒ½å·²ç»æ›´æ–°åˆ°äº†åº•å±‚çš„æ•°æ®ç»“æ„å½“ä¸­
+	 * ä¹‹ååªéœ€è¦è°ƒç”¨get...Dataå³å¯å–å¾—æ•°æ®
+	 * æ‰€ä»¥ç”¨äºå…¨éƒ¨åˆ·æ–°åˆ°åº•å±‚çš„refreshAllæ–¹æ³•çš„å¯ä»¥ç”±è¯»å–ä¸€ä¸ªOPCå˜é‡çš„æ–¹æ³•å®ç°
 	 * @param connectionId
-	 * ÓÃÓÚÇø·ÖÓë¶à¸öOPC·şÎñÆ÷µÄÁ¬½Ó
+	 * ç”¨äºåŒºåˆ†ä¸å¤šä¸ªOPCæœåŠ¡å™¨çš„è¿æ¥
 	 * @param firstItemName
-	 * °´Ö®Ç°Ìí¼ÓË³ĞòµÄµÚÒ»¸ö±äÁ¿Ãû
+	 * æŒ‰ä¹‹å‰æ·»åŠ é¡ºåºçš„ç¬¬ä¸€ä¸ªå˜é‡å
 	 * @return
-	 * ³É¹¦Ôò·µ»ØµÚÒ»¸ö±äÁ¿µÄÖµ
-	 * Ê§°Ü·µ»Ø-1
+	 * æˆåŠŸåˆ™è¿”å›ç¬¬ä¸€ä¸ªå˜é‡çš„å€¼
+	 * å¤±è´¥è¿”å›-1
 	 */
 	public float refreshAll(int connectionId, String firstItemName){
 		return readFloatSync(connectionId, firstItemName);
 	}
 	/**
-	 * ²âÊÔÓÃ
+	 * æµ‹è¯•ç”¨
 	 * @param args
 	 */
 	public static void main(String args[]) {

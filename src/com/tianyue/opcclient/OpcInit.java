@@ -7,33 +7,33 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * opcInitÀàÓÃÓÚ³õÊ¼»¯OPC¿Í»§¶Ë¡£
- * Ã¿¸öOpcClientAPIÊµÀı¶ÔÓ¦Ä³Ò»¸öserver-group×éºÏ
- * Èç¹ûĞèÒª·ÃÎÊ¶à¸öserver»ògroup£¬Çënew¶à¸öopcInitÊµÀı²¢·Ö±ğÅäÖÃ
- * Æä¹¹Ôìº¯Êı²ÎÊıÎªÅäÖÃÎÄ¼şµÄµØÖ·£¨½¨ÒéÊ¹ÓÃ¾ø¶ÔÂ·¾¶£©£¬
- * readConfig·½·¨ÊµÏÖ¶ÔÅäÖÃÎÄ¼şµÄ¶ÁÈ¡ºÍ½âÎö¡£
- * ½âÎöºóµÄÏà¹ØĞÅÏ¢´æ´¢ÓÚ¶ÔÏóÄÚ²¿£¬ÔÚ½¨Á¢OPCÁ¬½ÓµÄÊ±ºòµ÷ÓÃ¡£
- * ArrayList<opcItem> itemList ÓÃÓÚÔÚ½¨Á¢OPCÁ¬½ÓÇ°´æ´¢itemÁĞ±í
+ * opcInitç±»ç”¨äºåˆå§‹åŒ–OPCå®¢æˆ·ç«¯ã€‚
+ * æ¯ä¸ªOpcClientAPIå®ä¾‹å¯¹åº”æŸä¸€ä¸ªserver-groupç»„åˆ
+ * å¦‚æœéœ€è¦è®¿é—®å¤šä¸ªserveræˆ–groupï¼Œè¯·newå¤šä¸ªopcInitå®ä¾‹å¹¶åˆ†åˆ«é…ç½®
+ * å…¶æ„é€ å‡½æ•°å‚æ•°ä¸ºé…ç½®æ–‡ä»¶çš„åœ°å€ï¼ˆå»ºè®®ä½¿ç”¨ç»å¯¹è·¯å¾„ï¼‰ï¼Œ
+ * readConfigæ–¹æ³•å®ç°å¯¹é…ç½®æ–‡ä»¶çš„è¯»å–å’Œè§£æã€‚
+ * è§£æåçš„ç›¸å…³ä¿¡æ¯å­˜å‚¨äºå¯¹è±¡å†…éƒ¨ï¼Œåœ¨å»ºç«‹OPCè¿æ¥çš„æ—¶å€™è°ƒç”¨ã€‚
+ * ArrayList<opcItem> itemList ç”¨äºåœ¨å»ºç«‹OPCè¿æ¥å‰å­˜å‚¨itemåˆ—è¡¨
  * @author tian
  */
 
 public class OpcInit {
 	private File file;
 	private Scanner input;
-	private String s, s1, s2,s3,s4; //ÓÃÓÚ¶ÁÈ¡ÅäÖÃÎÄ¼şÊ±µÄ×Ö·û´®´¦Àí²Ù×÷
-	public String IPAddress;		//OPC·şÎñÆ÷IPµØÖ·
-	public String serverName;		//OPC·şÎñÆ÷Ãû
-	public String groupName;		//OPC·şÎñÆ÷×éÃû£¨Ò»°ãÎªGroup0£©
+	private String s, s1, s2,s3,s4; //ç”¨äºè¯»å–é…ç½®æ–‡ä»¶æ—¶çš„å­—ç¬¦ä¸²å¤„ç†æ“ä½œ
+	public String IPAddress;		//OPCæœåŠ¡å™¨IPåœ°å€
+	public String serverName;		//OPCæœåŠ¡å™¨å
+	public String groupName;		//OPCæœåŠ¡å™¨ç»„åï¼ˆä¸€èˆ¬ä¸ºGroup0ï¼‰
 	public ArrayList<OpcItem> itemList;
-	public int itemCnt;				//Í³¼Æµ±Ç°Ìí¼ÓµÄ±äÁ¿ÊıÁ¿
-	public int connectionId;   		//Çø·Ö¶à¸öOPC·şÎñÆ÷Á¬½Ó
-									//Ò»¸öOpcInit¶ÔÏóÖ»¶ÔÓ¦Ò»¸öOpc·şÎñÆ÷Á¬½Ó
-									//MainControlPanelÖĞµÄbasicAddress¼ÓOpcInitÖĞµÄconnetionIdËùµÃµØÖ·
-									//Ó¦¶ÔÓ¦H2±íÖĞµÄDEVICE_ID×Ö¶Î
+	public int itemCnt;				//ç»Ÿè®¡å½“å‰æ·»åŠ çš„å˜é‡æ•°é‡
+	public int connectionId;   		//åŒºåˆ†å¤šä¸ªOPCæœåŠ¡å™¨è¿æ¥
+									//ä¸€ä¸ªOpcInitå¯¹è±¡åªå¯¹åº”ä¸€ä¸ªOpcæœåŠ¡å™¨è¿æ¥
+									//MainControlPanelä¸­çš„basicAddressåŠ OpcInitä¸­çš„connetionIdæ‰€å¾—åœ°å€
+									//åº”å¯¹åº”H2è¡¨ä¸­çš„DEVICE_IDå­—æ®µ
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 * @param configFileName
-	 * Æä¹¹Ôìº¯Êı²ÎÊıÎªÅäÖÃÎÄ¼şµÄµØÖ·£¨½¨ÒéÊ¹ÓÃ¾ø¶ÔÂ·¾¶£©
+	 * å…¶æ„é€ å‡½æ•°å‚æ•°ä¸ºé…ç½®æ–‡ä»¶çš„åœ°å€ï¼ˆå»ºè®®ä½¿ç”¨ç»å¯¹è·¯å¾„ï¼‰
 	 */
 	public OpcInit(String configFileName, int connectionId) {
 		file = new File(configFileName);
@@ -43,9 +43,9 @@ public class OpcInit {
 		this.connectionId = connectionId;
 	}
 	/**
-	 * ¾ßÌåÅäÖÃµÄÊµÏÖ
+	 * å…·ä½“é…ç½®çš„å®ç°
 	 * @return
-	 * ÎÄ¼şÎ´ÕÒµ½Ôò·µ»Ø-1£¬ÅäÖÃÍê³ÉÔò·µ»Ø0
+	 * æ–‡ä»¶æœªæ‰¾åˆ°åˆ™è¿”å›-1ï¼Œé…ç½®å®Œæˆåˆ™è¿”å›0
 	 */
 	public int readConfig() {
 		try {
@@ -57,7 +57,7 @@ public class OpcInit {
 		}
 		while (input.hasNext()) {
 			s = input.nextLine();
-			if (s.startsWith("//")) //×¢ÊÍĞĞ
+			if (s.startsWith("//")) //æ³¨é‡Šè¡Œ
 				continue;
 			s1 = s.substring(0, s.indexOf('='));
 			s2 = s.substring(s.indexOf('=') + 1, s.length());
@@ -69,11 +69,11 @@ public class OpcInit {
 			else
 			if (s1.equals("GroupName"))
 				groupName = s2.trim();
-			else{   //±äÁ¿¶¨ÒåĞĞ
+			else{   //å˜é‡å®šä¹‰è¡Œ
 				s3 = s2.substring(s2.indexOf('=') + 1, s2.length()).trim();
-				s2 = s2.substring(0, s2.indexOf('=')).trim(); //±äÁ¿Ãû
-				s4 = s3.substring(s3.indexOf('=') + 1, s3.length()).trim();//¶ÁĞ´ÊôĞÔ
-				s3 = s3.substring(0, s3.indexOf('=')).trim(); //Êı¾İÀàĞÍ
+				s2 = s2.substring(0, s2.indexOf('=')).trim(); //å˜é‡å
+				s4 = s3.substring(s3.indexOf('=') + 1, s3.length()).trim();//è¯»å†™å±æ€§
+				s3 = s3.substring(0, s3.indexOf('=')).trim(); //æ•°æ®ç±»å‹
 				System.out.println(s1+" "+s2+" "+s3+" "+s4);
 				OpcItem item = new OpcItem();
 				item.name = s2;
@@ -129,7 +129,7 @@ public class OpcInit {
 	}
 
 	public static void main(String args[]) {
-		//½¨Á¢ÊµÀı£¬¹¹Ôìº¯Êı²ÎÊıÎªÅäÖÃÎÄ¼şµØÖ·£¨½¨ÒéÊ¹ÓÃ¾ø¶ÔÂ·¾¶£©
+		//å»ºç«‹å®ä¾‹ï¼Œæ„é€ å‡½æ•°å‚æ•°ä¸ºé…ç½®æ–‡ä»¶åœ°å€ï¼ˆå»ºè®®ä½¿ç”¨ç»å¯¹è·¯å¾„ï¼‰
 		OpcInit init = new OpcInit("D:/OpcConfig.ini",0);
 		if (init.readConfig()==0){
 			OpcClientAPI opc = new OpcClientAPI();
@@ -144,11 +144,11 @@ public class OpcInit {
 			while (true){
 				OpcItem oi;
 				it = init.itemList.iterator();
-				//Ò»´Î¶ÁÈ¡Õû×é
+				//ä¸€æ¬¡è¯»å–æ•´ç»„
 				if (it.hasNext()){
 				    opc.readFloatSync(init.connectionId, ((OpcItem)it.next()).name);
 				}
-				// Ö®ºóÖ±½Ó·ÃÎÊÏàÓ¦´æ´¢µ¥ÔªÊä³ö¼´¿É
+				// ä¹‹åç›´æ¥è®¿é—®ç›¸åº”å­˜å‚¨å•å…ƒè¾“å‡ºå³å¯
 				it = init.itemList.iterator();
 				while (it.hasNext())
 				{

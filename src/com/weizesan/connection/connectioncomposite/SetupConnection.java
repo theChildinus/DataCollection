@@ -553,7 +553,7 @@ public class SetupConnection {
 			panel.oneClickRun(conf.getDirectory(), conf.getDeviceid(), Integer.parseInt(conf.getOpcTime()));
 		}
 		
-		if ( isWhole == true ) {
+		if ( isWhole == true ) { //主站(客户机)
 			WholeStationConfiguration configuration = new WholeStationConfiguration();
 			configuration.getConnectionString();
 			CommandConfiguration commandConf = new CommandConfiguration();
@@ -571,7 +571,7 @@ public class SetupConnection {
 			receive.startReceiver();
 		}
 		
-		else {
+		else { //从站(服务器)
 			SustationConfiguration subs = new SustationConfiguration();
 			subs.getConnectionString();
 			Thread thread = new Thread(new DownCommandThread());

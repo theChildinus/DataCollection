@@ -347,6 +347,7 @@ class GetDataFromH2 {
 		
 		String driver = "org.h2.Driver";
 		String url="jdbc:h2:tcp://" + configuration.getUrl() + "/" + configuration.getDatabase();
+		System.out.println("jdbc-url is: " + url);
 		String user= configuration.getUsername();
 		String password= configuration.getPassword();
 

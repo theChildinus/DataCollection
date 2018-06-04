@@ -44,10 +44,10 @@ DeviceUsername=root
 DevicePassword=123456
 
 //Configuration for accessing memory database using H2.
-MemoryUrl=10.108.165.191
+MemoryUrl=localhost
 MemoryDatabase=mem:test
-MemoryUsername=sa
-MemoryPassword=
+MemoryUsername=root
+MemoryPassword=1234
 
 //Configuration for the host monitor.
 HostUrl=192.168.0.1
