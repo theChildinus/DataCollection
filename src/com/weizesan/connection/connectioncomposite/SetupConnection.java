@@ -648,7 +648,6 @@ class PublishWebService implements Runnable {
 				+ this.webServiceUrl + ":" + this.webServiceport + "/"
 				+ this.webServicename, "http://" + ServicemixConfFactory.conf.getUrl() + ":" + ServicemixConfFactory.conf.getPort());
 		String response = "";
-
 		try {
 			response = command.createPullPoint();
 

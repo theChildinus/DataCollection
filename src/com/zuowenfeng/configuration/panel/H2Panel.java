@@ -130,11 +130,11 @@ public class H2Panel extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			String url = "jdbc:h2:tcp://" + urlText.getText() + "/" + databaseField.getText();
-			
+			String url = "jdbc:h2:tcp://" + urlText.getText() + "/~/" + databaseField.getText();
+			System.out.println("h2url: " + url);
 			try {
 				Class.forName("org.h2.Driver");
-				Connection conn = DriverManager.getConnection(url, usernameText.getText(), passwordText.getText());
+				Connection conn = DriverManager.getConnection(url, usernameText.getText(), new String(passwordText.getPassword()));
 				conn.close();
 				JOptionPane.showMessageDialog(parent, "连接成功");
 			} catch (ClassNotFoundException e) {
@@ -143,6 +143,7 @@ public class H2Panel extends JPanel {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				JOptionPane.showMessageDialog(parent, "连接失败");
+				e.printStackTrace();
 			}
 			
 		}
@@ -162,7 +163,7 @@ public class H2Panel extends JPanel {
 	}
 	
 	public String getPassword() {
-		return passwordText.getText();
+		return new String(passwordText.getPassword());
 	}
 	
 }

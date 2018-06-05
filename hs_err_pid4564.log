@@ -128,7 +128,7 @@ Launcher Type: SUN_STANDARD
 
 Environment Variables:
 JAVA_HOME=D:\Program Files\Java\jdk1.6.0_18
-PATH=D:/Program Files/Java/jre6/bin/client;D:/Program Files/Java/jre6/bin;D:/Program Files/Java/jre6/lib/i386;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Microsoft SQL Server\80\Tools\BINN;C:\Program Files\9158KTV\Package\bpl;C:\Program Files\9158KTV\bin;F:\QQ管家\新建文件夹\QQPCMgr\6.8.2383.401;D:\Program Files\Java\jdk1.6.0_18\bin;C:\apache\apache-maven-2.2.1\bin;C:\AppServ\Apache2.2\bin;C:\AppServ\php5;C:\AppServ\MySQL\bin;F:\QQ管家\新建文件夹\QQPCMgr\6.8.2383.401;C:\Program Files\eclipse;
+PATH=D:/Program Files/Java/jre6/bin/client;D:/Program Files/Java/jre6/bin;D:/Program Files/Java/jre6/lib/i386;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Microsoft SQL Server\80\Tools\BINN;C:\Program Files\9158KTV\Package\bpl;C:\Program Files\9158KTV\bin;F:\QQ绠″\鏂板缓鏂囦欢澶筡QQPCMgr\6.8.2383.401;D:\Program Files\Java\jdk1.6.0_18\bin;C:\apache\apache-maven-2.2.1\bin;C:\AppServ\Apache2.2\bin;C:\AppServ\php5;C:\AppServ\MySQL\bin;F:\QQ绠″\鏂板缓鏂囦欢澶筡QQPCMgr\6.8.2383.401;C:\Program Files\eclipse;
 USERNAME=JF
 OS=Windows_NT
 PROCESSOR_IDENTIFIER=x86 Family 6 Model 23 Stepping 6, GenuineIntel

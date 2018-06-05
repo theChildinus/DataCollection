@@ -39,7 +39,7 @@ public class StationDAO {
 	
 	public ResultSet getAssignedDistinctResult( String column ) throws SQLException {
 		String sql = "select distinct ";
-		sql = sql.concat(column + " from deviceInfo;");
+		sql = sql.concat(column + " from deviceinfo;");
 		
 		return stmt.executeQuery(sql);
 	}
@@ -58,11 +58,11 @@ public class StationDAO {
 		}
 		
 		if ( !constraints.equals("")) {
-			sql = sql.concat("from deviceInfo where " + constraints + ";");
+			sql = sql.concat("from deviceinfo where " + constraints + ";");
 		}
 		
 		else 
-			sql = sql.concat("from deviceInfo;");
+			sql = sql.concat("from deviceinfo;");
 		System.out.println(sql);
 		return stmt.executeQuery(sql);
 	}

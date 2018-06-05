@@ -402,8 +402,9 @@ public class MsgShowUI extends JFrame {
 		splitpane.setDividerLocation((int)( getHeight() / 2 ) );
 		
 		setLocationRelativeTo(null);
-		UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-		show();
+		UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+		// show();
+		setVisible(true);
 	}
 	
 	public String changeDown( int length ) {

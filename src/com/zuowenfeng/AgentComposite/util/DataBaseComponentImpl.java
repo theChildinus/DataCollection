@@ -44,7 +44,7 @@ public class DataBaseComponentImpl implements DataBaseComponent {
 		try {
 			Class.forName("org.h2.Driver");
 			conf.getConnectionString();
-			Connection conn = DriverManager.getConnection("jdbc:h2:tcp://" + conf.getUrl() + "/" + conf.getDatabase(), conf.getUsername(), conf.getPassword());
+			Connection conn = DriverManager.getConnection("jdbc:h2:tcp://" + conf.getUrl() + "/~/" + conf.getDatabase(), conf.getUsername(), conf.getPassword());
 			return conn;
 			
 		} catch (ClassNotFoundException e) {

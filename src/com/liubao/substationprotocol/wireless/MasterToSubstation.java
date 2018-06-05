@@ -265,11 +265,11 @@ public class MasterToSubstation implements Runnable {
 			
 			String driver = "org.h2.Driver";
 			//String url="jdbc:h2:tcp://" + configuration.getUrl() + "/" + configuration.getDatabase();
-			String url = "jdbc:h2:tcp://localhost/mem:test;DB_CLOSE_ON_EXIT=FALSE";
+			String url = "jdbc:h2:tcp://localhost/~/test;DB_CLOSE_ON_EXIT=FALSE";
 			//String user= configuration.getUsername();
 			String user = "root";
 			//String password= configuration.getPassword();
-			String password = "123456";
+			String password = "1234";
 
 				try{	
 					Class.forName(driver);  //注册驱动器

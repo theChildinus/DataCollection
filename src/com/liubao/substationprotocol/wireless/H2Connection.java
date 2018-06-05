@@ -26,7 +26,7 @@ public class H2Connection {
 		String driver = "org.h2.Driver";
 		//String url="jdbc:h2:tcp://" + configuration.getUrl() + "/" + configuration.getDatabase();
 		//String url = "jdbc:h2:tcp://10.108.165.37/~/myTest;DB_CLOSE_ON_EXIT=FALSE";
-		String url = "jdbc:h2:tcp://" + configuration.getUrl() + "/" + configuration.getDatabase() + ";DB_CLOSE_ON_EXIT=FALSE";
+		String url = "jdbc:h2:tcp://" + configuration.getUrl() + "/~/" + configuration.getDatabase() + ";DB_CLOSE_ON_EXIT=FALSE";
 		
 		//String user= configuration.getUsername();
 //		String user = "root";
