@@ -27,7 +27,7 @@ public class DVP_MODBUS_RTU extends CSlaveProtocol {
 	private String plcId;                                               // 保存正在使用的PLC的ID
 	private String[] m_plcId;                                           // 用字符串存储连接的所有plcId
 	private String m_address;                                           // 记录sensor_id 如D0
-	private String[] m_databaseTable={"GL_analog_measure", "GL_analog_control","GL_digital_measure","GL_digital_control"};
+	private String[] m_databaseTable={"gl_analog_measure", "gl_analog_control","gl_digital_measure","gl_digital_control"};
 	private int m_pollTable = 0;                                        // 轮询实时数据库表
 	private int m_pollPlc = 0;                                          // 轮询plc
 	private int m_count = 0;                                            // 未接到数据包的次数
@@ -248,11 +248,11 @@ public class DVP_MODBUS_RTU extends CSlaveProtocol {
 		byte[] buffer = null;
 		for (int i = m_pollTable; i < m_databaseTable.length;) {
 			for (int j = m_pollPlc; j < m_plcId.length;) {
-				if (m_databaseTable[i].equals("GL_analog_measure") || m_databaseTable[i].equals("GL_analog_control")) {        // 锅炉的模拟量，对其进行打包
+				if (m_databaseTable[i].equals("gl_analog_measure") || m_databaseTable[i].equals("gl_analog_control")) {        // 锅炉的模拟量，对其进行打包
 					plcId = m_plcId[j];
 					buffer = FormPackage(m_plcId[j], m_databaseTable[i]);
 
-				} else if (m_databaseTable[i].equals("GL_digital_measure") || m_databaseTable[i].equals("GL_digital_control")) {// 锅炉的信号量，对其进行打包
+				} else if (m_databaseTable[i].equals("gl_digital_measure") || m_databaseTable[i].equals("gl_digital_control")) {// 锅炉的信号量，对其进行打包
 					plcId = m_plcId[j];
 					buffer = FormPackage(m_plcId[j], m_databaseTable[i]);
 
@@ -268,7 +268,7 @@ public class DVP_MODBUS_RTU extends CSlaveProtocol {
 
 	public byte[] FormPackage(String plc, String table) throws Exception { // 按照一定的规则进行打包
 
-		if (table.equals("GL_analog_measure") ||table.equals("GL_analog_control")) { // 是模拟量，则用模拟量的方式对其打包，
+		if (table.equals("gl_analog_measure") ||table.equals("gl_analog_control")) { // 是模拟量，则用模拟量的方式对其打包，
 			byte[] buffer = FormAnalogPackage(plc, table);
 			return buffer;
 		} else {                                                             // 是数字量，则用数字量的方式打包

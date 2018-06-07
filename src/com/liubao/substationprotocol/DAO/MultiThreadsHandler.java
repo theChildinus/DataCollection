@@ -308,37 +308,37 @@ class MultiThreadsHandler implements Runnable{
 				Date date = new Date();
 				System.out.println("Number " + i + ": " + date.getTime());
 				
-//				ArrayList<HeatingPoint> table_GlAnalogMeasure = allTables.table_GlAnalogMeasure;
-//				
-//				for(int s = 0;s<table_GlAnalogMeasure.size();s++){
-//					GLAnalogMeasure measure = (GLAnalogMeasure)table_GlAnalogMeasure.get(s);
-//					measure.setDataType(0);
-//					GLAnalogMeasure raw = (GLAnalogMeasure)checkDataType(measure, measure.getDeviceID(), measure.getPLCID(), measure.getSensorID(), true);
-//					measure.setLowlimit(raw.getLowlimit());
-//					measure.setLowlowlimit(raw.getLowlowlimit());
-//					measure.setHighlimit(raw.getHighlimit());
-//					measure.setHighhighlimit(raw.getHighhighlimit());
-//					
-//					int outbound = checkOutbound(measure);
-//					((GLAnalogMeasure)allTables.table_GlAnalogMeasure.get(s)).setOutbound(outbound);
-//					
-//					if ( outbound != 0 ) {
-//						String msg = objectToOutbound(raw.getBoilerRoom(), raw.getMeasure_type(), raw.getDescription(), raw.getMeasure_type(), measure.getValue(), "" + outbound );
-//						//System.out.println(msg);
-//						publishUpdate("GL", msg, 1);
-//					}
-//					
-//				}  //end of for
-//				
-//				objectToUpdateMsg(allTables.table_GlAnalogMeasure);
-//				publishUpdate("all", builder.toString(), 4);
-//				builder.delete(0, builder.length());
-//				objectToUpdateMsg(allTables.table_GlAnalogControl);
-//				publishUpdate("gl_analog_control", builder.toString(), 4);
-//				builder.delete(0, builder.length());
-//				objectToUpdateMsg(allTables.table_GlDigitalControl);
-//				publishUpdate("gl_digital_control", builder.toString(), 4);
-//				builder.delete(0, builder.length());
+				ArrayList<HeatingPoint> table_GlAnalogMeasure = allTables.table_GlAnalogMeasure;
+
+				for(int s = 0;s<table_GlAnalogMeasure.size();s++){
+					GLAnalogMeasure measure = (GLAnalogMeasure)table_GlAnalogMeasure.get(s);
+					measure.setDataType(0);
+					GLAnalogMeasure raw = (GLAnalogMeasure)checkDataType(measure, measure.getDeviceID(), measure.getPLCID(), measure.getSensorID(), true);
+					measure.setLowlimit(raw.getLowlimit());
+					measure.setLowlowlimit(raw.getLowlowlimit());
+					measure.setHighlimit(raw.getHighlimit());
+					measure.setHighhighlimit(raw.getHighhighlimit());
+
+					int outbound = checkOutbound(measure);
+					((GLAnalogMeasure)allTables.table_GlAnalogMeasure.get(s)).setOutbound(outbound);
+
+					if ( outbound != 0 ) {
+						String msg = objectToOutbound(raw.getBoilerRoom(), raw.getMeasure_type(), raw.getDescription(), raw.getMeasure_type(), measure.getValue(), "" + outbound );
+						//System.out.println(msg);
+						publishUpdate("GL", msg, 1);
+					}
+
+				}  //end of for
+
+				objectToUpdateMsg(allTables.table_GlAnalogMeasure);
+				publishUpdate("all", builder.toString(), 4);
+				builder.delete(0, builder.length());
+				objectToUpdateMsg(allTables.table_GlAnalogControl);
+				publishUpdate("gl_analog_control", builder.toString(), 4);
+				builder.delete(0, builder.length());
+				objectToUpdateMsg(allTables.table_GlDigitalControl);
+				publishUpdate("gl_digital_control", builder.toString(), 4);
+				builder.delete(0, builder.length());
 				
 				System.out.println("Done!");
 				i++;

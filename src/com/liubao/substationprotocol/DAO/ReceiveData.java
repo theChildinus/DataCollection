@@ -33,7 +33,7 @@ public class ReceiveData {
 			while(true){
 				System.out.println("Waiting for connect...");
 				Socket incoming = s.accept();
-				//System.out.println("aa");
+				System.out.println("aaaaa");
 				EstablishedSocketList establishedSocket = new EstablishedSocketList();
 				establishedSocket.incoming = incoming;
 				BufferedReader br = new BufferedReader(new InputStreamReader(incoming.getInputStream()));
@@ -68,9 +68,11 @@ public class ReceiveData {
 		ServerSocket s = new ServerSocket(port);
 		
 		while ( true ) {
+			System.out.println("Waiting for connect...");
 			Socket incoming = s.accept();
 			EstablishedSocketList establishedSocket = new EstablishedSocketList();
 			establishedSocket.incoming = incoming;
+            System.out.println("ReceiveData Socket is: " + incoming);
 			BufferedReader br = new BufferedReader(new InputStreamReader(incoming.getInputStream()));
 			establishedSocket.hostName = br.readLine();
 			System.out.println("hostName:"+establishedSocket.hostName);

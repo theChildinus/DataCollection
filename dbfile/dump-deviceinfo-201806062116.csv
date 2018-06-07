@@ -1,0 +1,474 @@
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
+--
+-- Host: localhost    Database: deviceinfo
+-- ------------------------------------------------------
+-- Server version	5.7.22-0ubuntu0.16.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `address_division`
+--
+
+DROP TABLE IF EXISTS `address_division`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `address_division` (
+  `Number` int(11) NOT NULL,
+  `Device_ID` varchar(11) DEFAULT NULL,
+  `Plc_ID` varchar(5) DEFAULT NULL,
+  `Start_Address` varchar(5) DEFAULT NULL,
+  `Word_Count` int(11) DEFAULT NULL,
+  `Arrange` int(11) DEFAULT NULL,
+  `Rate` float DEFAULT NULL,
+  `Offset` float DEFAULT NULL,
+  PRIMARY KEY (`Number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `address_division`
+--
+
+LOCK TABLES `address_division` WRITE;
+/*!40000 ALTER TABLE `address_division` DISABLE KEYS */;
+INSERT INTO `address_division` VALUES (1,'3','1','D12',2,3412,1,0);
+/*!40000 ALTER TABLE `address_division` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `deviceinfo`
+--
+
+DROP TABLE IF EXISTS `deviceinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deviceinfo` (
+  `record_number` int(11) NOT NULL,
+  `server_name` varchar(45) DEFAULT NULL,
+  `server_ipaddress` varchar(45) DEFAULT NULL,
+  `server_port` int(11) DEFAULT NULL,
+  `connection_protocol` varchar(5) DEFAULT NULL,
+  `device_protocol` varchar(45) DEFAULT NULL,
+  `data_protocol` varchar(45) DEFAULT NULL,
+  `device_name` varchar(45) DEFAULT NULL,
+  `device_ipaddress` varchar(45) DEFAULT NULL,
+  `device_port` int(11) DEFAULT NULL,
+  `device_physical_address` varchar(45) DEFAULT NULL,
+  `device_id` varchar(45) DEFAULT NULL,
+  `plc_id` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`record_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `deviceinfo`
+--
+
+LOCK TABLES `deviceinfo` WRITE;
+/*!40000 ALTER TABLE `deviceinfo` DISABLE KEYS */;
+INSERT INTO `deviceinfo` VALUES (3,'madian','127.0.1.1',NULL,NULL,'232','DVP_MODBUS_ASC',NULL,NULL,NULL,NULL,'3','1,2,3');
+/*!40000 ALTER TABLE `deviceinfo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gl_analog_control`
+--
+
+DROP TABLE IF EXISTS `gl_analog_control`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gl_analog_control` (
+  `Device_ID` varchar(50) NOT NULL,
+  `PLC_ID` varchar(50) NOT NULL,
+  `Sensor_ID` varchar(50) NOT NULL,
+  `Word_Count` tinyint(4) DEFAULT NULL,
+  `deviceType` varchar(15) DEFAULT NULL,
+  `boilerRoom` varchar(45) NOT NULL,
+  `boiler` varchar(45) NOT NULL,
+  `field` varchar(45) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `measure_type` varchar(45) DEFAULT NULL,
+  `measure_unit` varchar(45) DEFAULT NULL,
+  `value` float DEFAULT NULL,
+  `factor` float DEFAULT NULL,
+  `offset` float DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `topic` varchar(45) DEFAULT NULL,
+  `blockflag` int(11) NOT NULL,
+  `blockvalue` float NOT NULL,
+  PRIMARY KEY (`Device_ID`,`PLC_ID`,`Sensor_ID`,`boilerRoom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gl_analog_control`
+--
+
+LOCK TABLES `gl_analog_control` WRITE;
+/*!40000 ALTER TABLE `gl_analog_control` DISABLE KEYS */;
+INSERT INTO `gl_analog_control` VALUES ('3','1','D2104',2,'MODBUS','13','1','RQGL','madian_1#guolu','2018-05-30 09:18:19','2014-09-24','17:51:05','GLLNQYTT','C',0,1,0,2,'madian_1#锅炉前排烟温',0,0);
+/*!40000 ALTER TABLE `gl_analog_control` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gl_analog_measure`
+--
+
+DROP TABLE IF EXISTS `gl_analog_measure`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gl_analog_measure` (
+  `Device_ID` varchar(50) NOT NULL,
+  `PLC_ID` varchar(50) NOT NULL,
+  `Sensor_ID` varchar(50) NOT NULL,
+  `Word_Count` tinyint(4) DEFAULT NULL,
+  `deviceType` varchar(15) DEFAULT NULL,
+  `boilerRoom` varchar(45) NOT NULL,
+  `boiler` varchar(45) NOT NULL,
+  `field` varchar(45) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `measure_type` varchar(45) DEFAULT NULL,
+  `measure_unit` varchar(45) DEFAULT NULL,
+  `value` float DEFAULT NULL,
+  `factor` float DEFAULT NULL,
+  `offset` float DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `topic` varchar(45) DEFAULT NULL,
+  `blockflag` int(11) NOT NULL,
+  `blockvalue` float NOT NULL,
+  `highlimit` int(11) DEFAULT NULL,
+  `lowlimit` int(11) DEFAULT NULL,
+  `highhighlimit` int(11) DEFAULT NULL,
+  `lowlowlimit` int(11) DEFAULT NULL,
+  `outbound` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Device_ID`,`PLC_ID`,`Sensor_ID`,`boilerRoom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gl_analog_measure`
+--
+
+LOCK TABLES `gl_analog_measure` WRITE;
+/*!40000 ALTER TABLE `gl_analog_measure` DISABLE KEYS */;
+INSERT INTO `gl_analog_measure` VALUES ('3','1','D2104',2,'MODBUS','13','1','RQGL','madian_1#guolu','2018-06-05 03:21:49','2014-09-24','17:51:05','GLLNQYTT','C',0,1,0,2,'madian_1#锅炉前排烟温',0,0,150,0,160,0,0);
+/*!40000 ALTER TABLE `gl_analog_measure` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gl_digital_control`
+--
+
+DROP TABLE IF EXISTS `gl_digital_control`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gl_digital_control` (
+  `Device_ID` varchar(50) NOT NULL,
+  `PLC_ID` varchar(50) NOT NULL,
+  `Sensor_ID` varchar(50) NOT NULL,
+  `boilerRoom` varchar(50) NOT NULL,
+  `boiler` varchar(45) DEFAULT NULL,
+  `field` varchar(45) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `measure_type` varchar(45) NOT NULL,
+  `value` float NOT NULL,
+  `close` int(11) NOT NULL,
+  `open` int(11) NOT NULL,
+  `topic` varchar(45) DEFAULT NULL,
+  `blockflag` int(11) NOT NULL,
+  `blockvalue` float NOT NULL,
+  PRIMARY KEY (`Device_ID`,`PLC_ID`,`Sensor_ID`,`boilerRoom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gl_digital_control`
+--
+
+LOCK TABLES `gl_digital_control` WRITE;
+/*!40000 ALTER TABLE `gl_digital_control` DISABLE KEYS */;
+INSERT INTO `gl_digital_control` VALUES ('3','4','M512','7','1','QHBCQ','madian_qihou','2014-12-18 02:16:22','2012-09-18','09:06:33','KZMS',0,0,1,'madian_气候室外选择',0,0);
+/*!40000 ALTER TABLE `gl_digital_control` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gl_digital_measure`
+--
+
+DROP TABLE IF EXISTS `gl_digital_measure`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gl_digital_measure` (
+  `Device_ID` varchar(50) NOT NULL,
+  `PLC_ID` varchar(50) NOT NULL,
+  `Sensor_ID` varchar(50) NOT NULL,
+  `deviceType` varchar(45) DEFAULT NULL,
+  `boilerRoom` varchar(50) NOT NULL,
+  `boiler` varchar(45) DEFAULT NULL,
+  `field` varchar(45) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `measure_type` varchar(45) NOT NULL,
+  `state` int(11) DEFAULT NULL,
+  `value` float NOT NULL,
+  `close` int(11) NOT NULL,
+  `open` int(11) NOT NULL,
+  `topic` varchar(45) DEFAULT NULL,
+  `blockflag` int(11) NOT NULL,
+  `blockvalue` float NOT NULL,
+  `whenout` int(11) DEFAULT NULL,
+  `isbeyond` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Device_ID`,`PLC_ID`,`Sensor_ID`,`boilerRoom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gl_digital_measure`
+--
+
+LOCK TABLES `gl_digital_measure` WRITE;
+/*!40000 ALTER TABLE `gl_digital_measure` DISABLE KEYS */;
+INSERT INTO `gl_digital_measure` VALUES ('3','1','X0','DVP','13','1','RQGL','madian1#guolu','2018-05-30 14:07:31','2014-05-18','11:27:56','SZD',0,1,0,0,'madian_1#炉火自动',0,0,0,0);
+/*!40000 ALTER TABLE `gl_digital_measure` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rjl_analog_control`
+--
+
+DROP TABLE IF EXISTS `rjl_analog_control`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rjl_analog_control` (
+  `Device_ID` varchar(50) NOT NULL,
+  `PLC_ID` varchar(50) NOT NULL,
+  `Sensor_ID` varchar(50) NOT NULL,
+  `Word_Count` tinyint(4) DEFAULT NULL,
+  `deviceType` varchar(15) DEFAULT NULL,
+  `boilerRoom` varchar(45) NOT NULL,
+  `boiler` varchar(45) NOT NULL,
+  `field` varchar(45) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `measure_type` varchar(45) DEFAULT NULL,
+  `measure_unit` varchar(45) DEFAULT NULL,
+  `value` float DEFAULT NULL,
+  `factor` float DEFAULT NULL,
+  `offset` float DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `topic` varchar(45) DEFAULT NULL,
+  `blockflag` int(11) NOT NULL,
+  `blockvalue` float NOT NULL,
+  PRIMARY KEY (`Device_ID`,`PLC_ID`,`Sensor_ID`,`boilerRoom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rjl_analog_control`
+--
+
+LOCK TABLES `rjl_analog_control` WRITE;
+/*!40000 ALTER TABLE `rjl_analog_control` DISABLE KEYS */;
+INSERT INTO `rjl_analog_control` VALUES ('3','1','D2104',2,'MODBUS','13','1','RQGL','madian_1#guolu','2018-05-29 20:14:12','2014-09-12','17:51:30','GLLNQYTT','C',0,1,0,1,'马甸锅炉前排烟温',0,0);
+/*!40000 ALTER TABLE `rjl_analog_control` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rjl_analog_measure`
+--
+
+DROP TABLE IF EXISTS `rjl_analog_measure`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rjl_analog_measure` (
+  `Device_ID` varchar(50) NOT NULL,
+  `PLC_ID` varchar(50) NOT NULL,
+  `Sensor_ID` varchar(50) NOT NULL,
+  `Word_Count` tinyint(4) DEFAULT NULL,
+  `deviceType` varchar(15) DEFAULT NULL,
+  `boilerRoom` varchar(45) NOT NULL,
+  `boiler` varchar(45) NOT NULL,
+  `field` varchar(45) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `measure_type` varchar(45) DEFAULT NULL,
+  `measure_unit` varchar(45) DEFAULT NULL,
+  `value` float DEFAULT NULL,
+  `factor` float DEFAULT NULL,
+  `offset` float DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `topic` varchar(45) DEFAULT NULL,
+  `blockflag` int(11) NOT NULL,
+  `blockvalue` float NOT NULL,
+  `highlimit` int(11) DEFAULT NULL,
+  `lowlimit` int(11) DEFAULT NULL,
+  `highhighlimit` int(11) DEFAULT NULL,
+  `lowlowlimit` int(11) DEFAULT NULL,
+  `outbound` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Device_ID`,`PLC_ID`,`Sensor_ID`,`boilerRoom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rjl_analog_measure`
+--
+
+LOCK TABLES `rjl_analog_measure` WRITE;
+/*!40000 ALTER TABLE `rjl_analog_measure` DISABLE KEYS */;
+INSERT INTO `rjl_analog_measure` VALUES ('3','1','D2104',2,'MODBUS','13','1','RQGL','马甸_1#锅炉','2018-06-02 03:22:33','2014-04-01','22:11:12','GLLNQYTT','C',0,1,0,2,'madian_1#锅炉前排烟温',0,0,150,0,160,0,0);
+/*!40000 ALTER TABLE `rjl_analog_measure` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rjl_digital_control`
+--
+
+DROP TABLE IF EXISTS `rjl_digital_control`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rjl_digital_control` (
+  `Device_ID` varchar(50) NOT NULL,
+  `PLC_ID` varchar(50) NOT NULL,
+  `Sensor_ID` varchar(50) NOT NULL,
+  `boilerRoom` varchar(50) NOT NULL,
+  `boiler` varchar(45) DEFAULT NULL,
+  `field` varchar(45) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `measure_type` varchar(45) NOT NULL,
+  `value` float NOT NULL,
+  `close` int(11) NOT NULL,
+  `open` int(11) NOT NULL,
+  `topic` varchar(45) DEFAULT NULL,
+  `blockflag` int(11) NOT NULL,
+  `blockvalue` float NOT NULL,
+  PRIMARY KEY (`Device_ID`,`PLC_ID`,`Sensor_ID`,`boilerRoom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rjl_digital_control`
+--
+
+LOCK TABLES `rjl_digital_control` WRITE;
+/*!40000 ALTER TABLE `rjl_digital_control` DISABLE KEYS */;
+INSERT INTO `rjl_digital_control` VALUES ('3','4','M512','7','1','QHBCQ','madian_qihou','2014-12-18 02:16:22','2012-09-17','09:06:33','KZMS',0,0,1,'madian_气候室外选择',0,0);
+/*!40000 ALTER TABLE `rjl_digital_control` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rjl_digital_measure`
+--
+
+DROP TABLE IF EXISTS `rjl_digital_measure`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rjl_digital_measure` (
+  `Device_ID` varchar(50) NOT NULL,
+  `PLC_ID` varchar(50) NOT NULL,
+  `Sensor_ID` varchar(50) NOT NULL,
+  `deviceType` varchar(45) DEFAULT NULL,
+  `boilerRoom` varchar(50) NOT NULL,
+  `boiler` varchar(45) DEFAULT NULL,
+  `field` varchar(45) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `measure_type` varchar(45) NOT NULL,
+  `state` int(11) DEFAULT NULL,
+  `value` float NOT NULL,
+  `close` int(11) NOT NULL,
+  `open` int(11) NOT NULL,
+  `topic` varchar(45) DEFAULT NULL,
+  `blockflag` int(11) NOT NULL,
+  `blockvalue` float NOT NULL,
+  `whenout` int(11) DEFAULT NULL,
+  `isbeyond` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Device_ID`,`PLC_ID`,`Sensor_ID`,`boilerRoom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rjl_digital_measure`
+--
+
+LOCK TABLES `rjl_digital_measure` WRITE;
+/*!40000 ALTER TABLE `rjl_digital_measure` DISABLE KEYS */;
+INSERT INTO `rjl_digital_measure` VALUES ('3','1','X0','DVP','13','1','RQGL','madian1#guolu','2018-05-30 14:07:31','2014-05-17','11:27:56','SZD',0,1,0,0,'madian_1#炉火自动',0,0,0,0);
+/*!40000 ALTER TABLE `rjl_digital_measure` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rs232`
+--
+
+DROP TABLE IF EXISTS `rs232`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rs232` (
+  `record_number` int(11) NOT NULL,
+  `portname` varchar(10) NOT NULL,
+  `baudrate` int(11) NOT NULL,
+  `flowcontrolin` varchar(10) NOT NULL,
+  `flowcontrolout` varchar(10) NOT NULL,
+  `startbits` int(11) NOT NULL,
+  `stopbits` int(11) NOT NULL,
+  `databits` int(11) NOT NULL,
+  `parity` varchar(10) NOT NULL,
+  `status` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`record_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rs232`
+--
+
+LOCK TABLES `rs232` WRITE;
+/*!40000 ALTER TABLE `rs232` DISABLE KEYS */;
+INSERT INTO `rs232` VALUES (3,'ttyS0',9600,'0','0',0,1,7,'Odd',0);
+/*!40000 ALTER TABLE `rs232` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'deviceinfo'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-06-06 21:16:06

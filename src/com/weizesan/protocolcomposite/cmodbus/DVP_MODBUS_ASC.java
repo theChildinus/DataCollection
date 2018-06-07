@@ -24,7 +24,7 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 	private String[] s_plcId;                   // 用字符号存储的plcId
 
 	                                            // 定义需要查询的几张数据表，并且依次轮询
-	private String[] a_databaseTable = { "GL_analog_measure","GL_analog_control","GL_digital_measure","GL_digital_control"};
+	private String[] a_databaseTable = { "gl_analog_measure","gl_analog_control","gl_digital_measure","gl_digital_control"};
 	private int a_pollTable = 0;                // 轮询实时数据库表
 	private int a_pollPlc = 0;                  // 轮询plc
 	private int a_count = 0;                // 接收数据的次数，如果超过一定的值，则丢弃该数据包
@@ -243,11 +243,11 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 		System.out.println("**********没有下发命令，则读实时表");
 		for (int i = a_pollTable; i < a_databaseTable.length;) {
 			for (int j = a_pollPlc; j < s_plcId.length;) {
-				if (a_databaseTable[i].equals("GL_analog_measure") || a_databaseTable[i].equals("GL_analog_control")) {         // 锅炉的模拟量，对其进行打包
+				if (a_databaseTable[i].equals("gl_analog_measure") || a_databaseTable[i].equals("gl_analog_control")) {         // 锅炉的模拟量，对其进行打包
 					plcId = s_plcId[j];
 					buffer = FormPackage(s_plcId[j], a_databaseTable[i]);
 
-				} else if (a_databaseTable[i].equals("GL_digital_measure") || a_databaseTable[i].equals("GL_digital_control")) {          // 锅炉的信号量，对其进行打包
+				} else if (a_databaseTable[i].equals("gl_digital_measure") || a_databaseTable[i].equals("gl_digital_control")) {          // 锅炉的信号量，对其进行打包
 					plcId = s_plcId[j];
 					buffer = FormPackage(s_plcId[j], a_databaseTable[i]);
 				} 
@@ -268,7 +268,7 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 
 	public byte[] FormPackage(String plc, String table) throws Exception {
 		
-		if (table.equalsIgnoreCase("GL_analog_measure") || table.equalsIgnoreCase("GL_analog_control")) {    // 模拟量，则用模拟量的格式对其进行打包，
+		if (table.equalsIgnoreCase("gl_analog_measure") || table.equalsIgnoreCase("gl_analog_control")) {    // 模拟量，则用模拟量的格式对其进行打包，
 			byte[] buffer = FormAnalogPackage(plc, table);
 			return buffer;
 		} else {                                                 // 信号量，则用信号量的格式对其进行打包，

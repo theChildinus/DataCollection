@@ -103,24 +103,24 @@ public class SetupConnection {
 		String sqlserver = "select * from deviceinfo where server_ipaddress='"+ localIp + "'";
 		ResultSet rs = stmt.executeQuery(sqlserver);
 		while (rs.next()) { 
-			if (rs.getString("device_protocol").equals("232")) { 
+			if (rs.getString("device_protocol").equals("232")) {
 				isSerial = true;
 				isSerial232 = true;
 				Serial232_record.add(rs.getInt("record_number"));
 				device_id_232 = rs.getString("device_id");
-			} else if (rs.getString("device_protocol").equals("485")) { 
+			} else if (rs.getString("device_protocol").equals("485")) {
 				isSerial = true;
 				isSerial485 = true;
 				Serial485_record.add(rs.getInt("record_number"));
 				device_id_485 = rs.getString("device_id");
-			} else if (rs.getString("connection_protocol").equals("TCP")) { 
+			} else if (rs.getString("connection_protocol").equals("TCP")) {
 				isNetwork = true;
 				Server = true;
 				TcpServer = true;
 				TcpServerName.add(rs.getString("server_name"));
 				TcpServerIp.add(rs.getString("server_ipaddress"));
 				TcpServerPort.add(rs.getInt("server_port"));
-			} else if (rs.getString("connection_protocol").equals("UDP")) { 
+			} else if (rs.getString("connection_protocol").equals("UDP")) {
 				isNetwork = true;
 				Server = true;
 				UdpServer = true;
@@ -506,6 +506,8 @@ public class SetupConnection {
 	}
 
 	public void start() throws Exception {
+        System.out.println("isSerial: " + isSerial);
+        System.out.println("isNetwork: " + isNetwork);
 		if (isSerial) {
 			if (isSerial485) {
 				start485();
@@ -554,6 +556,7 @@ public class SetupConnection {
 		}
 		
 		if ( isWhole == true ) { //主站(客户机)
+			System.out.println("====== 总站/主站 ======");
 			WholeStationConfiguration configuration = new WholeStationConfiguration();
 			configuration.getConnectionString();
 			CommandConfiguration commandConf = new CommandConfiguration();
@@ -572,6 +575,7 @@ public class SetupConnection {
 		}
 		
 		else { //从站(服务器)
+            System.out.println("====== 子站/从站 ======");
 			SustationConfiguration subs = new SustationConfiguration();
 			subs.getConnectionString();
 			Thread thread = new Thread(new DownCommandThread());

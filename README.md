@@ -12,14 +12,19 @@
 
 ## new_README
 > *by kong*
+### dbfile
+- dbfile文件夹中，GL开头和RJL开头的文件需导入h2数据库
+- dump-deviceinfo文件用于导入mySQL数据库
 ### 配置问题
 - 连接h2数据库需要注意工程中的h2-X.X.XXX.jar版本要和运行的h2数据库版本相同
 ### 一些SQL语句
 - 从csv文件中导入数据到h2数据库中
     - `create table 表名 as select * from csvread('csv文件路径');`
+- 从h2数据库中将数据导出到csv文件中
+    - `call csvwrite('导出路径', select * from 表名);`
 - 查询表信息
     - `select * from 表名;`
 - 添加列
     - `alter table 表名 add column 列名 varchar(30);`
 - 修改某一列的数据
-    - `UPDATE 表名称 SET 列名称=新值 WHERE 列名称=某值;`
+    - `update 表名称 SET 列名称 = 新值 where 列名称 = 某值;`

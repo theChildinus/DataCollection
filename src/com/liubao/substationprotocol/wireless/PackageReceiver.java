@@ -26,6 +26,7 @@ public class PackageReceiver implements Runnable {
 			while (true) {
 				Socket s = ss.accept();
 				System.out.println(s.getInetAddress().getHostName());
+				System.out.println("PackageReceiver ServerSocket is: " + s);
 				es.execute(new WirelessHandler(s));
 				System.out.println("开始接收");
 				//加锁？
