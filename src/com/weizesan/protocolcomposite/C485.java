@@ -1,6 +1,7 @@
 package com.weizesan.protocolcomposite;
 
-import javax.comm.*;
+//import javax.comm.*;
+import gnu.io.*;
 
 import com.weizesan.connection.databasecomposite.DataBaseComposite;
 import com.weizesan.protocolcomposite.cmodbus.DVP_MODBUS_ASC;

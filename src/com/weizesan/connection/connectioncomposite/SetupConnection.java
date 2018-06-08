@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
@@ -19,12 +20,9 @@ import java.util.concurrent.Executors;
 
 import javax.xml.ws.Endpoint;
 
+import com.configuration.*;
 import wsn.wsnclient.command.SendWSNCommand;
 
-import com.configuration.CommandConfiguration;
-import com.configuration.OPCConfiguration;
-import com.configuration.SustationConfiguration;
-import com.configuration.WholeStationConfiguration;
 import com.factory.MemoryDBConFactory;
 import com.factory.MsgReceiverFactory;
 import com.factory.PublishFactory;
@@ -41,7 +39,7 @@ import com.zuowenfeng.configuration.panel.OPCPanel;
 import com.zuowenfeng.configuration.panel.SubstationPanel;
 import com.zuowenfeng.connection.viewcomposite.MainConfigurationDialog;
 import com.zuowenfeng.variable.DeviceStaticData;
-
+import com.configuration.Configuration;
 public class SetupConnection {
 
 	private ArrayList<String> TcpServerName;
@@ -100,7 +98,7 @@ public class SetupConnection {
 		DataBaseComposite dc = new DataBaseComposite();
 		Connection conn = dc.getmysql();
 		Statement stmt = conn.createStatement();
-		String sqlserver = "select * from deviceinfo where server_ipaddress='"+ localIp + "'";
+		String sqlserver = "select * from deviceinfo where sqlserver_ipaddress='"+ localIp + "'";
 		ResultSet rs = stmt.executeQuery(sqlserver);
 		while (rs.next()) { 
 			if (rs.getString("device_protocol").equals("232")) {
@@ -526,18 +524,24 @@ public class SetupConnection {
 	}
 
 	public static void main(String[] args) throws Exception {
+        boolean flag = Arrays.asList(args).contains("whole");
+        if (flag) {
+            Configuration.wholeStation = true;
+        } else {
+            Configuration.wholeStation = false;
+        }
 		ServicemixConfFactory factory = new ServicemixConfFactory();
 		factory.createServicemixConfInstance();
 		boolean isOpc;
 		boolean isWhole;
 		
-		if ( args.length == 0 ) {
+		if ( args.length != 2 ) {
 			MainConfigurationDialog dialog = new MainConfigurationDialog(null);
 			isOpc = dialog.isOpcSelected();
 			isWhole = dialog.isWholeStation();
 		}
 		
-		else {
+		else{
 			isOpc = Boolean.getBoolean(args[0]);
 			isWhole = Boolean.getBoolean(args[1]);
 		}

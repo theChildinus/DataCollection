@@ -1,8 +1,8 @@
 package com.liubao.substationprotocol.wireless;
 
 
-import javax.comm.*;
-
+//import javax.comm.*;
+import gnu.io.*;
 //import com.configuration.DeviceInfoConfiguration;
 
 import java.io.*;

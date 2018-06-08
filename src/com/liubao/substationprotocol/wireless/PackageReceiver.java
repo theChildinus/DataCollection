@@ -15,20 +15,17 @@ public class PackageReceiver implements Runnable {
 	private static ConnectList cl = new ConnectList();
 
 	public static void receive() throws IOException {
-		System.out.println("tt");
 		SustationConfiguration configuration = new SustationConfiguration();
 		configuration.getConnectionString();
-		
 		try {
 			ServerSocket ss = new ServerSocket(configuration.getPort());
+			System.out.println("PackageReceiver bindPort: " + configuration.getPort());
 			ExecutorService es = Executors.newCachedThreadPool();
-
+            System.out.println("PackageReceiver Waiting for connect...");
 			while (true) {
 				Socket s = ss.accept();
-				System.out.println(s.getInetAddress().getHostName());
-				System.out.println("PackageReceiver ServerSocket is: " + s);
+				System.out.println("PackageReceiver ServerSocket is: " + s + "开始接收");
 				es.execute(new WirelessHandler(s));
-				System.out.println("开始接收");
 				//加锁？
 				for (int i = 0; i < cl.aConList.size(); i++) {
 					if (cl.aConList.get(i).getSocket() == null	|| cl.aConList.get(i).getSocket().isClosed()) {

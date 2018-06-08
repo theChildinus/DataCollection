@@ -68,7 +68,7 @@ public class ReceiveData {
 		ServerSocket s = new ServerSocket(port);
 		
 		while ( true ) {
-			System.out.println("Waiting for connect...");
+			System.out.println("ReceiveData Waiting for connect...");
 			Socket incoming = s.accept();
 			EstablishedSocketList establishedSocket = new EstablishedSocketList();
 			establishedSocket.incoming = incoming;

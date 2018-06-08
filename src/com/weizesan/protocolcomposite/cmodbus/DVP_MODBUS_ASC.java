@@ -209,7 +209,7 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 	}
 	
 	public byte[] SendCommand(String plc_id, String sensor_id, float value,int downtype) throws Exception { // 下发命令
-
+		System.out.println("********** DVP_MODUSBUS_ASC 处理命令");
 		if (downtype == 0) {                           //开关量
 			d_commandType = a_ForceSingleCoil;         //功能码05
 			d_value = new byte[2];
@@ -233,7 +233,7 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 
 
 	public byte[] SendProcess() throws Exception {      // 发送处理
-		
+		System.out.println("********** DVP_MODUSBUS_ASC 发送请求");
 		if (init_Query) {                               // 初始化查询
 			QueryPLC(a_recordNo);
 			init_Query = false;

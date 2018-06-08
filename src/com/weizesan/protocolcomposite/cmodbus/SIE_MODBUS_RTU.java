@@ -230,7 +230,7 @@ public class SIE_MODBUS_RTU extends CSlaveProtocol {
 	
 	
 	public byte[] SendCommand(String plc_id, String sensor_id, float value,int downtype) throws Exception { // 下发遥控指令
-
+		System.out.println("********** SIE_MODUSBUS_RTU 处理命令");
 		if (downtype == 0) { 
 			d_commandType = m_ForceSingleStatus;         //开关量
 			d_value = new byte[2];
@@ -253,7 +253,7 @@ public class SIE_MODBUS_RTU extends CSlaveProtocol {
 	
 
 	public byte[] SendProcess() throws Exception { // 处理发送请求
-
+		System.out.println("********** SIE_MODUSBUS_RTU 发送请求");
 		if (init_Query) {             // 查询一次配置表
 			QueryPLC(m_recordNo);
 			init_Query = false;

@@ -15,6 +15,8 @@
 ### dbfile
 - dbfile文件夹中，GL开头和RJL开头的文件需导入h2数据库
 - dump-deviceinfo文件用于导入mySQL数据库
+### configure2.txt
+- 对于子站而言,该文件中的SubstationUrl填写的应该是主站IP
 ### 配置问题
 - 连接h2数据库需要注意工程中的h2-X.X.XXX.jar版本要和运行的h2数据库版本相同
 ### 一些SQL语句

@@ -19,9 +19,9 @@ public class SendData {
 	public static  Socket initSocket(String ip, int port) throws InterruptedException{
 		Socket socket;
 		try{
-			 socket = new Socket(ip,port);
+			 socket = new Socket(ip, port);
 		}catch(IOException ioe){
-			System.out.println("---断线，1分钟后重连---");
+			System.out.println("---断线，1分钟后重连---" + ioe);
 			//new Thread();
 			/*延时一分钟*/
 			Thread.sleep(1000);
@@ -97,6 +97,7 @@ public class SendData {
 	}  //end of main
 	
 	public SendData( String url, int port ) throws UnknownHostException, IOException {
+		System.out.println("subURL: " + url + " subPort: " + port);
 		final String surl = url;
 		final int sport = port;
 		
@@ -164,7 +165,7 @@ public class SendData {
 				
 				try {
 					sock = SendData.initSocket(surl, sport);
-					
+
 					if ( sock != null ) {
 						String hostname = InetAddress.getLocalHost().getHostName();
 						PrintWriter pw = new PrintWriter(sock.getOutputStream(), true );

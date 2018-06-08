@@ -1,6 +1,7 @@
 package com.weizesan.protocolcomposite;
 
-import javax.comm.*;
+//import javax.comm.*;
+import gnu.io.*;
 
 import com.weizesan.connection.connectioncomposite.SetupConnection;
 import com.weizesan.connection.databasecomposite.DataBaseComposite;
@@ -138,6 +139,7 @@ public class C232 extends CDeviceProtocol implements SerialPortEventListener,
 						System.out.print(buffer[i]+" ");
 					System.out.println();
 					os.write(buffer);
+                    System.out.println("**********成功通过串口发送");
 				}else{
 					System.out.println("**********下发内容为空");
 				}
@@ -224,18 +226,18 @@ public class C232 extends CDeviceProtocol implements SerialPortEventListener,
 	public void openConnection() throws Exception {
 		// 将数据放入parameters，再取出
 		// System.out.println("在类C232的openProcess方法中:");
-		System.out.println("**********开串口");
+		System.out.println("**********开串口" + parameters.getPortName());
 		try {
 			// CommPortIdentifier取得
-			// System.out.println(parameters.getPortName());
 			portId = CommPortIdentifier.getPortIdentifier(parameters
 					.getPortName());
+            System.out.println("**********打开串口成功！");
 		} catch (NoSuchPortException ex) {
 			exception.setTimestamp(Timestamp.valueOf(format.format(new Date())));
 			exception.findExceptionDetails();
 			exception.sendDeviceException();
 			System.out.println("**********串口没有打开，问题已上报");
-			// ex.printStackTrace();
+			ex.printStackTrace();
 		}
 		try {
 			// 5000ms超时，这个应改为可设

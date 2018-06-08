@@ -12,16 +12,16 @@ public class WholeStationConfiguration extends Configuration {
 	}
 
 	public void getConnectionString() {
-		
+
 		for ( int i = 0; i <= configurationContent.length - 1; i++ ) {
-			
+
 			if ( configurationContent[ i ].startsWith("WholestationPort")) {
 				port = Integer.parseInt(configurationContent[ i ].split("=")[1]);
 				wirelessPort = Integer.parseInt(configurationContent[ i + 1 ].split("=")[1]);
 			}
-			
+
 		}
-		
+
 	}
 	
 	public int getPort() {
