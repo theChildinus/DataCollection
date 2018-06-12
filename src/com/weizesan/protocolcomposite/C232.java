@@ -62,7 +62,9 @@ public class C232 extends CDeviceProtocol implements SerialPortEventListener,
 	
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss.S");
 	private DeviceException exception;
-		
+
+	private static int eventCount = 1;
+
 	CSlaveProtocol pl; 
 	public C232(int recordoNo) throws Exception {     
 		
@@ -128,6 +130,18 @@ public class C232 extends CDeviceProtocol implements SerialPortEventListener,
 		}
 		return sendBuffer;
 	}
+	private String buildEvent(byte[] buffer) {
+		String result;
+		String eventHead, eventTail;
+		eventHead = "<xml type=\"event\" name=\"increase\" num=\"" + String.valueOf(eventCount++) + "\" attr=\"";
+		eventTail = "\"><x>" + String.valueOf(buffer[3]) + "</x><y>" + String.valueOf(buffer[4]) + "</y></xml>";
+		StringBuilder eventContext = new StringBuilder();
+		for (int i = 0; i < 5; i++) {
+			eventContext.append("*");
+		}
+		result = eventHead + eventContext + eventTail;
+		return result;
+	}
 
 	public void Write(byte[] buffer) throws Exception { 
 		try {
@@ -138,7 +152,11 @@ public class C232 extends CDeviceProtocol implements SerialPortEventListener,
 					for(int i=0;i<buffer.length;i++)
 						System.out.print(buffer[i]+" ");
 					System.out.println();
-					os.write(buffer);
+
+					String event = buildEvent(buffer);
+					System.out.println("**********构造事件为:  " + event);
+//					os.write(buffer);
+					os.write(event.getBytes());
                     System.out.println("**********成功通过串口发送");
 				}else{
 					System.out.println("**********下发内容为空");
