@@ -130,11 +130,19 @@ public class C232 extends CDeviceProtocol implements SerialPortEventListener,
 		}
 		return sendBuffer;
 	}
-	private String buildEvent(byte[] buffer) {
+
+	private String buildEvent(byte[] buffer, String type, String name) {
 		String result;
 		String eventHead, eventTail;
-		eventHead = "<xml type=\"event\" name=\"increase\" num=\"" + String.valueOf(eventCount++) + "\" attr=\"";
-		eventTail = "\"><x>" + String.valueOf(buffer[3]) + "</x><y>" + String.valueOf(buffer[4]) + "</y></xml>";
+		String eventType = "type=\"" + type + "\" ";
+		String eventName = "name=\"" + name + "\" ";
+		String eventNum = "num=\"" + String.valueOf(eventCount++) + "\" ";
+		String eventAttr =  "attr=\"";
+		eventHead = "<xml " + eventType + eventName + eventNum + eventAttr;
+
+        int address = (buffer[1] - 48) * 10 + (buffer[2] - 48);
+        int funcNum = (buffer[3] - 48) * 10 + (buffer[4] - 48);
+		eventTail = "\"><c>" + String.valueOf(address) + "</c><y>" + String.valueOf(funcNum) + "</y></xml>";
 		StringBuilder eventContext = new StringBuilder();
 		for (int i = 0; i < 5; i++) {
 			eventContext.append("*");
@@ -148,12 +156,12 @@ public class C232 extends CDeviceProtocol implements SerialPortEventListener,
 			System.out.print("**********写串口");
 			if (os != null){
 				if(buffer!=null && buffer.length>0){
-					System.out.print("内容如下: ");
+					System.out.print("内容如下(ASCII码值): ");
 					for(int i=0;i<buffer.length;i++)
 						System.out.print(buffer[i]+" ");
 					System.out.println();
 
-					String event = buildEvent(buffer);
+					String event = buildEvent(buffer, "event", "RUN");
 					System.out.println("**********构造事件为:  " + event);
 //					os.write(buffer);
 					os.write(event.getBytes());
@@ -195,7 +203,8 @@ public class C232 extends CDeviceProtocol implements SerialPortEventListener,
 			c_count++;
 			symbol = pl.ReceiveProcess(buffer);
 			System.out.println("**********"+c_count+"次未接到数据");
-			if ( c_count > 10 ) {
+			if ( c_count > 50 ) {
+				System.out.println("超过" + c_count + "次未收到包, 抛出异常");
 				exception.findExceptionDetails();
 				exception.sendDeviceException();
 				c_count = 0;

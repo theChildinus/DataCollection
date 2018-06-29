@@ -241,15 +241,18 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 		byte[] buffer = null;
 
 		System.out.println("**********没有下发命令，则读实时表");
+		System.out.println("plcId.length: " + s_plcId.length);
 		for (int i = a_pollTable; i < a_databaseTable.length;) {
 			for (int j = a_pollPlc; j < s_plcId.length;) {
 				if (a_databaseTable[i].equals("gl_analog_measure") || a_databaseTable[i].equals("gl_analog_control")) {         // 锅炉的模拟量，对其进行打包
 					plcId = s_plcId[j];
 					buffer = FormPackage(s_plcId[j], a_databaseTable[i]);
+					a_pollPlc = (j + 1) % s_plcId.length;
 
 				} else if (a_databaseTable[i].equals("gl_digital_measure") || a_databaseTable[i].equals("gl_digital_control")) {          // 锅炉的信号量，对其进行打包
 					plcId = s_plcId[j];
 					buffer = FormPackage(s_plcId[j], a_databaseTable[i]);
+					a_pollPlc = (j + 1) % s_plcId.length;
 				} 
 				break;
 			}
@@ -279,7 +282,7 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 
 	@SuppressWarnings("unchecked")
 	public byte[] FormAnalogPackage(String plc, String table) throws Exception {       // 生成模拟量包
-		
+        System.out.println("********** FormAnalogPackage");
 		a_sendType = a_ReadHoldingRegister;	                  
 		System.out.println("**********PLC_ID是: " + plc + " 功能码是：" + a_sendType+ " 实时数据表为：" + table);
 		
@@ -386,7 +389,7 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 
 	@SuppressWarnings("unchecked")
 	public byte[] FormDigitalPackage(String plc, String table) throws Exception {   // 生成开关量包
-		
+        System.out.println("********** FormDigitalPackage");
 		a_sensor_address = new ArrayList<String>();
 				
 		if(flag){
@@ -906,6 +909,11 @@ public class DVP_MODBUS_ASC extends CSlaveProtocol {
 			result = result.toUpperCase();
 			bb[0] = a_Stx;
 			char[] ss = result.toCharArray();
+            System.out.print("**********转成16进制: ");
+            for (char item : ss) {
+                System.out.print(item + " ");
+            }
+            System.out.println();
 			for (int i = 0, j = 1; i < ss.length; i++, j++) {
 				char temp = ss[i];
 				byte a = (byte) temp;
