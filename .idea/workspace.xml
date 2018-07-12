@@ -1,5 +1,232 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f7edea53-2e5a-4080-840b-30bb47d0b7fd" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/AnalogAlarmConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/ClientAlarmConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/CommandConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/Configuration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/DeviceAlarmConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/DeviceInfoConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/HostConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/LocalConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/MemoryDBConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/NotifyConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/OPCConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/ServicemixConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/SustationConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/SwitchAlarmConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/UpdateDBInfoConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/configuration/WholeStationConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/factory/CMODBUS_RTUFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/factory/MemoryDBConFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/factory/MsgReceiverFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/factory/PublishFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/factory/ServicemixConfFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/DAO/AllTables.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/DAO/EstablishedSocketList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/DAO/GetDataFromH2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/DAO/MultiThreadsHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/DAO/ReceiveData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/DAO/SendData$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/DAO/SendData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/DAO/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/bean/GlAnalogControlRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/bean/GlAnalogMeasureRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/bean/GlDigitalControlRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/bean/GlDigitalMeasureRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/bean/RjlAnalogControlRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/bean/RjlAnalogMeasureRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/bean/RjlDigitalControlRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/bean/RjlDigitalMeasureRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/C232.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/ConnectKeeper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/ConnectList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/DataHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/DeviceInfoConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/H2Connection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/MasterMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/MasterToSubstation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/PackageReceiver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/PackageSender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/SResultSet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/Serial232Parameters.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/SubReceive.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/liubao/substationprotocol/wireless/WirelessHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/tianyue/opcclient/MainControlPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/tianyue/opcclient/OpcClientAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/tianyue/opcclient/OpcInit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/tianyue/opcclient/OpcItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/DownCommandThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/PublishWebService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/SetupConnection$Handler232.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/SetupConnection$Handler485.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/SetupConnection$HandlerTcp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/SetupConnection$HandlerUdp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/SetupConnection$OpenTcp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/SetupConnection$OpenUdp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/connectioncomposite/SetupConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/connection/databasecomposite/DataBaseComposite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/deviceprotocolcomposite/DeviceProtocolSearch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/C232.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/C485.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/CDeviceProtocol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/CH700.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/CIHDC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/Serial232Parameters.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/Serial485Parameters.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/cmodbus/CSlaveProtocol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/cmodbus/ContentComparator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/cmodbus/DVP_MODBUS_ASC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/cmodbus/DVP_MODBUS_RTU.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/cmodbus/SIE_MODBUS_ASC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/protocolcomposite/cmodbus/SIE_MODBUS_RTU.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/weizesan/test/ClientTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/wenpeng/org/apache/servicemix/wsn/push/INotificationProcess.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/wenpeng/org/apache/servicemix/wsn/push/NotificationProcessImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/AgentComposite/util/DataAnalyzeComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/AgentComposite/util/DataAnalyzeComponentImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/AgentComposite/util/DataBaseComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/AgentComposite/util/DataBaseComponentImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/AgentComposite/util/NotificationProcessImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/AgentComposite/util/PublishComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/AgentComposite/util/PublishComponentImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/GL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/GLAnalog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/GLAnalogControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/GLAnalogMeasure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/GLDigital.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/GLDigitalControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/GLDigitalMeasure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/HeatingPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/RJL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/RJLAnalog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/RJLAnalogControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/RJLAnalogMeasure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/RJLDigital.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/RJLDigitalControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/beans/RJLDigitalMeasure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/conf/CenterErrResource_zh.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/conf/MyResource.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/conf/MyResource_zh.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/H2Panel$DefaultHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/H2Panel$TestHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/H2Panel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/MysqlPanel$DefaultHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/MysqlPanel$TestHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/MysqlPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/OPCPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/OPCPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/OPCPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/PublishPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/SubstationPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/SubstationPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/SubstationPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/SubstationPanel$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/SubstationPanel$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/configuration/panel/SubstationPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/receivecomposite/MsgReceiver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/CenterErrOp$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/CenterErrOp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/FontOptDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/FontOptDialog$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/FontOptDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MainConfigurationDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MainConfigurationDialog$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MainConfigurationDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MonitorView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MonitorView$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MonitorView$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MonitorView$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MonitorView$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MonitorView$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MonitorView$Host.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MonitorView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MsgShowUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MsgShowUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MsgShowUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MsgShowUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MsgShowUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MsgShowUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MsgShowUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/MsgShowUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/StationChosenDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/StationChosenDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/TimeChooseDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/TimeChooseDialog$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/connection/viewcomposite/TimeChooseDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/exception/DeviceException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/message/AnalyzedMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/message/DownAnalyzedMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/message/DownMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/message/RawMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/message/UpMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/monitor/IPConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/monitor/LocalMonitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/monitor/Monitor$addConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/monitor/Monitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/monitor/SendTest$Listener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/monitor/SendTest$backups.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/monitor/SendTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/monitor/monitorDAO/StationDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/test/NotifyTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/test/StartingServerApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/test/SubscribeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/test/notifyThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jinfang/com/zuowenfeng/variable/DeviceStaticData.class" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="configure2.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configure2.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-381" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/configure.txt" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
@@ -9,11 +236,62 @@
     <option name="width" value="1400" />
     <option name="height" value="833" />
   </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Jinfang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jinfang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Jinfang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jinfang" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Jinfang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jinfang" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Jinfang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jinfang" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="zuowenfeng" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
@@ -57,6 +335,89 @@
       <properties />
       <listeners />
     </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7edea53-2e5a-4080-840b-30bb47d0b7fd" name="Default" comment="" />
+      <created>1531402782255</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1531402782255</updated>
+      <workItem from="1531402784542" duration="482000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="482000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="47" y="-1" width="1553" height="901" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24950232" />
+      <window_info anchor="right" id="Database" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/configure.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/versionChange.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jinfang.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configure2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-381" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/configure.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
