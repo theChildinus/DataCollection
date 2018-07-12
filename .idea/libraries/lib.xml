@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/NewWSNClient-20121206-method.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/h2-1.4.196.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/NewWSNClient-20121206-Test-ThreadSafety-id-nosleep.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/NewWSNClient-20121206-Test-ThreadSafety.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging-api-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/NewWSNClient-20121206-noRelease.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-httpclient-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.19-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/RXTXcomm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
