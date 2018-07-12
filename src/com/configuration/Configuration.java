@@ -18,7 +18,11 @@ public class Configuration {
 	public Configuration() throws IOException {
 	    fileInputStream = null;
 	    if (!wholeStation) {
+<<<<<<< HEAD
 	        fileInputStream = new FileInputStream("/home/kong/IdeaProjects/zuowenfeng/JinfangProject/Jinfang/configure2.txt");
+=======
+	        fileInputStream = new FileInputStream("/home/vm/Jinfang/configure2.txt");
+>>>>>>> 1b7d84e29fa02ddcb038401e9bf26a155b530c48
         } else {
 	        fileInputStream = new FileInputStream("/home/kong/IdeaProjects/zuowenfeng/JinfangProject/Jinfang/configure2.txt");
         }
@@ -43,7 +47,11 @@ public class Configuration {
 	public void updateConf( ArrayList<String> columns, ArrayList<String> values ) throws IOException {
 		FileWriter stream = null;
         if (!wholeStation) {
+<<<<<<< HEAD
             stream = new FileWriter("/home/kong/IdeaProjects/zuowenfeng/JinfangProject/Jinfang/configure2.txt");
+=======
+            stream = new FileWriter("/home/vm/Jinfang/configure2.txt");
+>>>>>>> 1b7d84e29fa02ddcb038401e9bf26a155b530c48
         } else {
             stream = new FileWriter("/home/kong/IdeaProjects/zuowenfeng/JinfangProject/Jinfang/configure2.txt");
         }
